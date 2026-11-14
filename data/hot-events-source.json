@@ -1,0 +1,29 @@
+{
+  "policy": "local_daily_utc_free_gift",
+  "source_catalog": "t_s_activitygiftpackage",
+  "source_gift": {
+    "ActiveType": 141,
+    "GiftLevel": 1,
+    "Id": 1,
+    "Issue": 1,
+    "Item": "208092,10",
+    "Name_de": "Aufrichtiges Geschenk",
+    "Name_en": "Heartfelt Gift",
+    "Name_es": "Regalo Sincero",
+    "Name_fr": "Cadeau Sincère",
+    "Name_id": "Hadiah Tulus",
+    "Name_nl": "Oprecht Geschenk",
+    "Name_pl": "Szczery Prezent",
+    "Name_pt": "Presente Sincero",
+    "Name_ru": "Подарок желания",
+    "Name_th": "ของขวัญจากใจ",
+    "Name_tr": "Dilek Hediyesi",
+    "Name_zhcn": "心意礼",
+    "Name_zhtw": "心意禮",
+    "ProductId": "",
+    "PurchaseLimit": 1,
+    "Sort": 1
+  },
+  "event_id": "vaveyla-daily-wish",
+  "minimum_level": 15
+}

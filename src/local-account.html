@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'self'">
+  <title>VAVEYLA yerel hesap</title>
+  <style>
+    :root{color-scheme:dark;font-family:system-ui,sans-serif;background:#121722;color:#edf1f7}
+    body{margin:0;padding:24px 16px}main{max-width:540px;margin:auto}h1{font-size:1.8rem}
+    p,li{line-height:1.5}.card{background:#1c2534;border:1px solid #354159;border-radius:14px;padding:20px;margin:20px 0}
+    label{display:block;margin:14px 0 7px}input{box-sizing:border-box;width:100%;padding:12px;border:1px solid #65718a;border-radius:7px;background:#111925;color:inherit;font-size:1rem}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}button{border:0;border-radius:7px;padding:12px 16px;background:#85d3ff;color:#092037;font:inherit;font-weight:600;cursor:pointer}
+    button.secondary{background:#354159;color:#edf1f7}button:disabled{opacity:.5;cursor:default}small{line-height:1.5;display:block;color:#bec9dc}#message{min-height:3em;white-space:pre-wrap}code{overflow-wrap:anywhere}
+  </style>
+</head>
+<body><main>
+  <h1>VAVEYLA yerel hesap</h1>
+  <p>Bu sayfadan yerel sunucuda hesap oluşturabilir ve giriş yapabilirsin.</p>
+  <section class="card" aria-labelledby="files-title">
+    <h2 id="files-title">Oyun dosyaları</h2>
+    <p id="files-state" role="status">Dosyalar kontrol ediliyor…</p>
+    <ul id="missing-files"></ul>
+    <small>Eğitim ve normal mücadele ilerlemesi kaydedilir. Bu bağımsız sunucu, resmî oyunun tüm özelliklerini içermez.</small>
+    <div class="actions"><button id="refresh-files" type="button" class="secondary">Dosyaları tekrar kontrol et</button></div>
+  </section>
+  <form id="account-form" class="card">
+    <label for="username">Kullanıcı adı</label>
+    <input id="username" name="username" required minlength="3" maxlength="32" pattern="[A-Za-z0-9_]{3,32}" autocomplete="username" autocapitalize="none" spellcheck="false">
+    <small>3–32 harf, rakam veya alt çizgi. Türkçe karakter kullanma.</small>
+    <label for="password">Parola</label>
+    <input id="password" name="password" type="password" required minlength="10" maxlength="128" autocomplete="current-password">
+    <small>En az 10 karakter. Parola tarayıcı oturumuna kaydedilmez.</small>
+    <div class="actions">
+      <button id="login" type="submit">Giriş yap</button>
+      <button id="register" type="button" class="secondary">Hesap oluştur</button>
+      <button id="open-game" type="button" class="secondary" disabled>Oyunu aç</button>
+    </div>
+    <p id="message" role="status" aria-live="polite"></p>
+  </form>
+</main>
+<script>
+(function () {
+  "use strict";
+  var form = document.getElementById("account-form");
+  var username = document.getElementById("username");
+  var password = document.getElementById("password");
+  var message = document.getElementById("message");
+  var filesState = document.getElementById("files-state");
+  var missingFiles = document.getElementById("missing-files");
+  var loginButton = document.getElementById("login");
+  var registerButton = document.getElementById("register");
+  var openButton = document.getElementById("open-game");
+  var currentSession = null;
+  var filesReady = false;
+  var submitting = false;
+
+  function notify(text) { message.textContent = text; }
+  function updateButtons() {
+    loginButton.disabled = submitting;
+    registerButton.disabled = submitting;
+    openButton.disabled = submitting || !currentSession || !filesReady;
+  }
+  async function jsonRequest(path, options) {
+    var controller = new AbortController();
+    var timer = setTimeout(function () { controller.abort(); }, 10000);
+    try {
+      options = options || {};
+      options.signal = controller.signal;
+      options.cache = "no-store";
+      options.referrerPolicy = "no-referrer";
+      var response = await fetch(path, options);
+      var data = await response.json();
+      if (!response.ok) {
+        var detail = data && data.error && data.error.message;
+        throw new Error(typeof detail === "string" ? detail : "İstek tamamlanamadı.");
+      }
+      return data;
+    } finally { clearTimeout(timer); }
+  }
+  async function checkFiles() {
+    filesReady = false;
+    updateButtons();
+    missingFiles.replaceChildren();
+    try {
+      var data = await jsonRequest("/api/client-status");
+      if (typeof data.configured !== "boolean" || !Array.isArray(data.missing) || !data.missing.every(function (entry) { return typeof entry === "string"; })) {
+        throw new Error("Dosya kontrolü yanıtı geçersiz.");
+      }
+      filesReady = data.configured && data.missing.length === 0 && data.ready !== false;
+      filesState.textContent = filesReady ? "Gerekli dosyalar mevcut. Oyun arayüzü ayrıca doğrulanmalıdır." : "Oyun dosyaları henüz hazır değil.";
+      data.missing.forEach(function (entry) {
+        var item = document.createElement("li"); item.textContent = entry; missingFiles.appendChild(item);
+      });
+      if (Array.isArray(data.warnings)) {
+        data.warnings.forEach(function (entry) {
+          if (typeof entry === "string") {
+            var item = document.createElement("li"); item.textContent = entry; missingFiles.appendChild(item);
+          }
+        });
+      }
+    } catch (_) { filesState.textContent = "Dosya kontrolüne erişilemedi. Sunucunun açık olduğundan emin ol."; }
+    updateButtons();
+    return filesReady;
+  }
+  async function openGame() {
+    if (!currentSession || !(await checkFiles())) {
+      notify("Oyun açılamadı. Giriş yap ve eksik oyun dosyalarını tamamla.");
+      return;
+    }
+    // Only the username enters the URL; bearer and password stay out of it.
+    window.location.assign("/index.html?from=DEBUG&user=" + encodeURIComponent(currentSession.username));
+  }
+  async function submitAccount(registering) {
+    if (submitting || !form.reportValidity()) { return; }
+    submitting = true; updateButtons();
+    notify(registering ? "Hesap oluşturuluyor…" : "Giriş yapılıyor…");
+    try {
+      var body = {username: username.value, password: password.value};
+      var data = await jsonRequest(registering ? "/api/register" : "/api/login", {
+        method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)
+      });
+      if (registering) { notify("Hesap oluşturuldu. Şimdi giriş yapabilirsin."); return; }
+      if (!data || typeof data.token !== "string" || !data.token || data.token.length > 256 || !data.account || typeof data.account.username !== "string" || !/^[A-Za-z0-9_]{3,32}$/.test(data.account.username)) {
+        throw new Error("Giriş yanıtı geçersiz.");
+      }
+      var session = {username: data.account.username, token: data.token};
+      try { sessionStorage.setItem("VAVEYLA_LOCAL_SESSION", JSON.stringify(session)); }
+      catch (_) { throw new Error("Tarayıcı oturum kaydına izin vermedi. Aynı sekmede depolama erişimini aç."); }
+      currentSession = session;
+      password.value = "";
+      notify("Yerel giriş başarılı. Oyun dosyaları kontrol ediliyor…");
+      if (await checkFiles()) { await openGame(); }
+      else { notify("Yerel giriş başarılı. Eksik oyun dosyaları nedeniyle oyun henüz açılmadı."); }
+    } catch (error) {
+      notify(error && error.name === "AbortError" ? "Sunucu zamanında yanıt vermedi." : (error && error.message ? error.message : "İşlem tamamlanamadı."));
+    } finally { submitting = false; updateButtons(); }
+  }
+  form.addEventListener("submit", function (event) { event.preventDefault(); submitAccount(false); });
+  registerButton.addEventListener("click", function () { submitAccount(true); });
+  openButton.addEventListener("click", openGame);
+  document.getElementById("refresh-files").addEventListener("click", checkFiles);
+  checkFiles();
+})();
+</script>
+</body>
+</html>

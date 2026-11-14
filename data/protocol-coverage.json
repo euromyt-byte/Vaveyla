@@ -1,0 +1,3490 @@
+{
+  "source_command_names": 676,
+  "unique_source_codes": 656,
+  "routing_groups": {
+    "login": [
+      28678,
+      28672,
+      28674,
+      28676,
+      28680,
+      20001
+    ],
+    "world_and_battle": [
+      5015,
+      5016,
+      5017,
+      5025,
+      5032,
+      5038,
+      5039,
+      5120,
+      5122,
+      5124,
+      5125,
+      5126,
+      5127,
+      5180,
+      8224,
+      8688,
+      8689,
+      8690,
+      8692,
+      8700,
+      8701,
+      8747,
+      10007,
+      10008,
+      10010,
+      10022,
+      20008
+    ],
+    "city_army_quests_inventory": [
+      8202,
+      8203,
+      8279,
+      8281,
+      8327,
+      5185,
+      5186,
+      5167,
+      8851,
+      5155,
+      5156,
+      5157,
+      5158,
+      5163,
+      8276,
+      5012,
+      5014,
+      5005,
+      5007,
+      8220,
+      8212,
+      8213,
+      5172
+    ],
+    "services": [
+      5006,
+      8204,
+      8205,
+      8206,
+      5022,
+      5154,
+      8218,
+      8789,
+      8790,
+      8207,
+      8211,
+      8209,
+      8214,
+      8208,
+      5130,
+      5131,
+      5132,
+      5133,
+      5134,
+      5135,
+      5137,
+      5139,
+      5140,
+      5141,
+      5142,
+      5143,
+      5144,
+      5146,
+      5149,
+      25024,
+      10509,
+      15005,
+      15023,
+      15038,
+      8200,
+      8528,
+      8504
+    ]
+  },
+  "coverage_definition": "Router presence does not verify every operation variant or Android UI.",
+  "commands": [
+    {
+      "name": "L_GET_PLAYER_LIST",
+      "code": 28672,
+      "status": "router_present"
+    },
+    {
+      "name": "L_PREPARE_LOGIN",
+      "code": 28674,
+      "status": "router_present"
+    },
+    {
+      "name": "L_REGISTER_ROLE",
+      "code": 28676,
+      "status": "router_present"
+    },
+    {
+      "name": "L_CREATE_LOGIN",
+      "code": 28678,
+      "status": "router_present"
+    },
+    {
+      "name": "G_LOGIN_GATEWAY",
+      "code": 20001,
+      "status": "router_present"
+    },
+    {
+      "name": "B_BATTLE_CHAT",
+      "code": 10509,
+      "status": "router_present"
+    },
+    {
+      "name": "CR_CHANNEL_CHAT",
+      "code": 25024,
+      "status": "router_present"
+    },
+    {
+      "name": "C_CASTLE_TIME_CANCEL",
+      "code": 8562,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SYNCHRONIZED_TIME",
+      "code": 20008,
+      "status": "router_present"
+    },
+    {
+      "name": "G_ACCELERATOR",
+      "code": 20009,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GOLD_IMPOSE",
+      "code": 8327,
+      "status": "router_present"
+    },
+    {
+      "name": "C_HANGUP_ROOM_STATE",
+      "code": 8295,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_QUICK_HANGUP_TIME",
+      "code": 8293,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_SNSINFO_RESET",
+      "code": 15036,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_QUICK",
+      "code": 8545,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_BOX_CHECK",
+      "code": 8577,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_BOX_SEND_INFO",
+      "code": 8579,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_BOX_SEND_CONFIRM",
+      "code": 8578,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_NEW_GUILD_FIGHT",
+      "code": 8699,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REQUEST_LOCAL_FINAL_ORDER",
+      "code": 8721,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TAKE_FINAL_REWARD",
+      "code": 8720,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REQUEST_BET_LIST",
+      "code": 8718,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BET_ADDLORDS",
+      "code": 8716,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REQUEST_FINAL_ORDERLIST",
+      "code": 8715,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LEAVE_LORDS",
+      "code": 8717,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ENTER_REQUEST",
+      "code": 8710,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REQUEST_START",
+      "code": 8714,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LOAD_LORDS_MAINBORAD",
+      "code": 8711,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_ALTAR_GETBUFF",
+      "code": 8550,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_ALTAR_BUY_SCENE",
+      "code": 8593,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OPEN_CONSORTIA__ALTAR",
+      "code": 8541,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ENTER_CONSORTIA_ALTAR",
+      "code": 8542,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIAFARM_OPEN_LORDSNODE",
+      "code": 8743,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FAM_BUFFER",
+      "code": 8566,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CALL_TREE",
+      "code": 8565,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ENTER_CONSORTIA_FAM",
+      "code": 8537,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REQ_FRIEND_FARM_STATE",
+      "code": 8231,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_FARM_OPER_CHECK",
+      "code": 15044,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_COMPREHEND",
+      "code": 8455,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SAVESPECIAL",
+      "code": 8456,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_FRIEND_SEARCH",
+      "code": 15042,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_CHAT_STATE",
+      "code": 15043,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_FRIEND_REQMSG_ACT",
+      "code": 15050,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_EXCHANGE_STATE",
+      "code": 15029,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_SIMPLEUSER_INFO",
+      "code": 15038,
+      "status": "router_present"
+    },
+    {
+      "name": "CH_SNS_UPDATE",
+      "code": 15033,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_ADD_GROUP",
+      "code": 15025,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_DEL_GROUP",
+      "code": 15026,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_RENAME_GROUP",
+      "code": 15027,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_FRIEND_MOVE",
+      "code": 15028,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_PRIVATE_CHAT",
+      "code": 15023,
+      "status": "router_present"
+    },
+    {
+      "name": "C_REWARD_ADD",
+      "code": 8288,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REWARD_REMOVE",
+      "code": 8289,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REWARD_FRESH",
+      "code": 8290,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REWARD_ARREST",
+      "code": 8298,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REWARD_FINISH",
+      "code": 8291,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_USER_PIN_CHECK",
+      "code": 8352,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CAPTAIN_SPEAK",
+      "code": 8353,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CANCEL_HANGUP",
+      "code": 8292,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TAKE_OFFLINE_REWARD",
+      "code": 8287,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_EFFECT_STOP",
+      "code": 8283,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LOAD_BUILD_ORDER",
+      "code": 8279,
+      "status": "router_present"
+    },
+    {
+      "name": "C_PLAYER_SIGN_CMD",
+      "code": 8266,
+      "status": "status_only"
+    },
+    {
+      "name": "C_STAR_MOVE",
+      "code": 8267,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STAR_PICK",
+      "code": 8268,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STAR_RAND",
+      "code": 8269,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STAR_BUY",
+      "code": 8270,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STAR_DATA_RESET",
+      "code": 8325,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STAR_COMPOSE",
+      "code": 8331,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STAR_LOCK",
+      "code": 8330,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STARSHOP_BUY",
+      "code": 8341,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STAR_BATCH_OP",
+      "code": 8794,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_QUICKCOOL_CHALLENGE_TIME",
+      "code": 8265,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BAG_EQUIPLOOK",
+      "code": 8199,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SIMPLEUSER_INFO",
+      "code": 8200,
+      "status": "router_present"
+    },
+    {
+      "name": "C_PLAYER_SEARCH",
+      "code": 8257,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_AASCHANGE",
+      "code": 8260,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_AASREFRESH",
+      "code": 8261,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ARMYPOS_EDIT",
+      "code": 8276,
+      "status": "router_present"
+    },
+    {
+      "name": "C_CAMPIAGN_ARMYPOS_REQ",
+      "code": 8278,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CAMPIAGN_ARMYPOS_EDIT",
+      "code": 8277,
+      "status": "not_implemented"
+    },
+    {
+      "name": "ARRIVE_ALTAR",
+      "code": 8549,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_NODE_LOCKSTATE",
+      "code": 8196,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_CH_CHANNEL_CHA",
+      "code": 15005,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_ARMY_UPDATE_GRID",
+      "code": 5181,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_ROOM_STATE",
+      "code": 5037,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_SYSTEM_ARMY",
+      "code": 5038,
+      "status": "router_present"
+    },
+    {
+      "name": "U_CH_FRIENDADD_CONFIRM",
+      "code": 15012,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_CH_ADD_RELATIONSHIP",
+      "code": 15003,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_CH_REMOVE_RELATIONSHIP",
+      "code": 15004,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_CH_RECOMMENDLIST",
+      "code": 15013,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_BATCHADD_RELATIONSHIP",
+      "code": 15024,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FIGHT_SPECIAL_BOSS",
+      "code": 8251,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ROOM_EDIT",
+      "code": 5034,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ROOM_PWDCHANGE",
+      "code": 8344,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_PLAYER_READY_STATE",
+      "code": 5036,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_PLAYER_LOGINSTATE",
+      "code": 5020,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_PLAYER_ADD_ATTACKCOUNT",
+      "code": 5021,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_PLAYER_NOVICE",
+      "code": 5017,
+      "status": "router_present"
+    },
+    {
+      "name": "C_BUILDING_INIT",
+      "code": 8281,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_PLAYER_GRADE",
+      "code": 5018,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_PLAYER_TIME",
+      "code": 5019,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_PLAYER_INFO",
+      "code": 5016,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_QUEST_ADD",
+      "code": 5012,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_USER_DISPLAY",
+      "code": 5004,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ARRIVE",
+      "code": 5125,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CAMPAIGN_SYNCPOS",
+      "code": 5124,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CAMPAIGN_INVITE_PLAYER_LIST",
+      "code": 5027,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ROOM_CREATE",
+      "code": 5023,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ROOM_LIST",
+      "code": 5026,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ROOM_ENTER",
+      "code": 5024,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_ROOM_FIND",
+      "code": 8465,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ROOM_EXIT",
+      "code": 5025,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ROOM_INVITE",
+      "code": 5028,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAGIN_ROOM_PLACESTATE",
+      "code": 5029,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ROOM_MASTER_CHANGE",
+      "code": 5030,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_FOG_UPDATE",
+      "code": 5126,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ENTER",
+      "code": 5039,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CAMPAIGN_EXIT",
+      "code": 5120,
+      "status": "router_present"
+    },
+    {
+      "name": "U_CAMPAIGN_MOVE",
+      "code": 5123,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_TAKE_CARD",
+      "code": 5122,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ARMY",
+      "code": 5121,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_ROOM_KILLPLAYER",
+      "code": 5031,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_CONFIRM",
+      "code": 5033,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_CALLBACK",
+      "code": 5032,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_MAILITEM_MOVE",
+      "code": 5022,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_MAIL_LIST",
+      "code": 8204,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_MAIL_DEL",
+      "code": 8206,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_MAIL_SEND",
+      "code": 8205,
+      "status": "router_present"
+    },
+    {
+      "name": "C_CONSORTIA_SPEAK",
+      "code": 8335,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MAIL_LIST",
+      "code": 8204,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_CREATE",
+      "code": 5130,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_USERINVITE",
+      "code": 5135,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_INVITEDEL",
+      "code": 5141,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_USERPASS",
+      "code": 5143,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_MODIFYBBS",
+      "code": 5139,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_GROUP_PLACARD",
+      "code": 8544,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CONSORTIA_MODIFYDESC",
+      "code": 5140,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_PASS",
+      "code": 5134,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_INVITE",
+      "code": 5142,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_OFF",
+      "code": 5144,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_LEVEL",
+      "code": 5133,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_FRESHALTAR",
+      "code": 5145,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CONSORTIA_QUIT",
+      "code": 5146,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_CHANGE",
+      "code": 5131,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_LEARN",
+      "code": 5147,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CONSORTIA_RENAME",
+      "code": 5148,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CONSORTIA_DUTYUPDATE",
+      "code": 5137,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_DELUSER",
+      "code": 5132,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_OPENAPP",
+      "code": 5149,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_ROBOTJOIN",
+      "code": 8197,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CONSORTIAUSER_LIST",
+      "code": 8207,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_QUEST_FINISH",
+      "code": 5014,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_OFFER_LIST",
+      "code": 8208,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_INVITEINFO_LIST",
+      "code": 8209,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_EVENT_LIST",
+      "code": 8210,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_DUTY_LIST",
+      "code": 8211,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_INFO",
+      "code": 8212,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_SEARCH",
+      "code": 8213,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_INVITE_LIST",
+      "code": 8214,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CONSORTIA_ALTERINFO",
+      "code": 8215,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CONSORTIA_SITE",
+      "code": 8217,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_ADDFRESH",
+      "code": 8216,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_ARMY_ISSUPPORT",
+      "code": 5128,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_BAG_MOVE",
+      "code": 5005,
+      "status": "router_present"
+    },
+    {
+      "name": "C_BAG_ARRANGE",
+      "code": 8220,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_BAG_USEITEM",
+      "code": 5006,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_BAG_SELL",
+      "code": 5007,
+      "status": "router_present"
+    },
+    {
+      "name": "C_BAG_REMOVE",
+      "code": 8346,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_DROPITEM_TAKE",
+      "code": 5129,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_BAG_BUY",
+      "code": 5010,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_HERO_UPDATE_EQUIPMENT",
+      "code": 5008,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_HERO_SKILLPOINT_RESET",
+      "code": 5184,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_HERO_SKILL_LIST",
+      "code": 5186,
+      "status": "router_present"
+    },
+    {
+      "name": "C_HERO_SKILL_UPGRADE",
+      "code": 5185,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_HERO_SETFASTKEY",
+      "code": 5167,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_HERO_RUNE_OP",
+      "code": 8605,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_HERO_RESETPOINT",
+      "code": 5170,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_HERO_ADDPOINT",
+      "code": 5171,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CAMPAIGN_TRAINING",
+      "code": 5127,
+      "status": "router_present"
+    },
+    {
+      "name": "C_ITEM_REFRESHPROPERTY",
+      "code": 8464,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ITEM_TRANSFORM",
+      "code": 8538,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_ITEM_STRENGTHEN",
+      "code": 5150,
+      "status": "implemented"
+    },
+    {
+      "name": "U_C_ITEM_INLAY",
+      "code": 5151,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_ITEM_INLAYJOIN",
+      "code": 5152,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_ITEM_COMPOSE",
+      "code": 5153,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_SHOP_BUY",
+      "code": 5154,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_SHOP_HASBUY",
+      "code": 8218,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CHECK_NICK",
+      "code": 8223,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_GUID_STRENGY_ADDITEM",
+      "code": 5009,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_ARMY_RECRUITED",
+      "code": 5155,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_ARMY_EDIT",
+      "code": 5156,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_ARMY_DEMOBPAWN",
+      "code": 5157,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_ARMY_UPGRADEPAWN",
+      "code": 5158,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_ARMY_ATTACK",
+      "code": 5160,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_ARMY_ATTACK_CASTLE",
+      "code": 5159,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_ARMY_RETURNHOME",
+      "code": 5161,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_ARMY_RECALL",
+      "code": 5162,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_ARMY_UPDATE_ARMYPAWN",
+      "code": 5163,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_BUIDLING_TRANS_COOL",
+      "code": 5173,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BUILDING_CREATE",
+      "code": 8202,
+      "status": "router_present"
+    },
+    {
+      "name": "C_BUILDING_UPGRADE",
+      "code": 8203,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_BUILDING_ORDER_QUICK",
+      "code": 5172,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_BUILDING_UPENERGY",
+      "code": 5174,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_BUILDING_ORDERADD",
+      "code": 5175,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_BUILDING_TRANSCASTLE",
+      "code": 5176,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_TREE_PICK",
+      "code": 5178,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TREE_FRIEND",
+      "code": 8219,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_TREE_WATER",
+      "code": 15017,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_UNOCCPWILDLAND",
+      "code": 5179,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_CASTLE_UPDATE",
+      "code": 5015,
+      "status": "router_present"
+    },
+    {
+      "name": "U_C_CAMPAIGN_FINISH",
+      "code": 5180,
+      "status": "router_present"
+    },
+    {
+      "name": "C_BAG_USEBIGBUGLE",
+      "code": 5011,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BAG_USESMALLBUGLE",
+      "code": 8198,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_G_LOGIN_GATEWAY",
+      "code": 20001,
+      "status": "router_present"
+    },
+    {
+      "name": "U_PLAYER_CLIENT_STATE",
+      "code": 5035,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ARMY_POS_UPDATE",
+      "code": 8194,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FAST_USE_BLOOD",
+      "code": 5633,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PHYSICLIST_BYGRID",
+      "code": 8201,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LONIG_LOAD_REQ",
+      "code": 8224,
+      "status": "router_present"
+    },
+    {
+      "name": "C_LEED_CLIENT",
+      "code": 8322,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LEED_FINISH",
+      "code": 8235,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LEED_ADD",
+      "code": 8234,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CLICKDATALIST",
+      "code": 8518,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHALLENGE",
+      "code": 8253,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MOVE_POS",
+      "code": 8254,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHALLENGEINFO_REQUEST",
+      "code": 8256,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_REINFORCE",
+      "code": 8255,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_WORLD_BOSS_CMD",
+      "code": 8258,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_WORLD_BOSS_REQ",
+      "code": 8259,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_WORLDBOSS_PLAYER_LIVE",
+      "code": 8264,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_WORLDBOSS_BUFFER",
+      "code": 8470,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_WORLDBOSS_STATE",
+      "code": 8271,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BATTER_COUNT",
+      "code": 8282,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_SETTING",
+      "code": 8793,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FRIEND_REFUSE",
+      "code": 8285,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ROOM_REFUSE",
+      "code": 8286,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MATCH_REQUEST",
+      "code": 8294,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LUCKY_FRFRESH",
+      "code": 8320,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LUCKY_SWAP",
+      "code": 8321,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REFININGSOUL_FRFRESH",
+      "code": 8466,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REFININGSOUL_SWAP",
+      "code": 8467,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TAKE_CHALLENGEREWARD",
+      "code": 8329,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TOWER_INFO",
+      "code": 8297,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ENTER_TOWER",
+      "code": 8296,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TOWER_RESET",
+      "code": 8299,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TOWER_LIVE",
+      "code": 8300,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_NODE_STATE",
+      "code": 8301,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ARMYPOS_REQUEST",
+      "code": 8328,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ARMY_POSATION",
+      "code": 8326,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ENTER_WARFIELD",
+      "code": 8332,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LEAVE_WARFIELD",
+      "code": 8333,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_WARFIELD_ATTACK",
+      "code": 8334,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GUIDE_FINISHED",
+      "code": 8302,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_WARORDER_REQUEST",
+      "code": 8337,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_WAR_MAXHP",
+      "code": 8338,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VIP_OPEN",
+      "code": 8513,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VIP_OPEN_GIFT",
+      "code": 8504,
+      "status": "router_present"
+    },
+    {
+      "name": "C_VIP_BOX_DROP",
+      "code": 8505,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VIPROULETTE",
+      "code": 8519,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ITEM_REFRESHFORREPLACE",
+      "code": 8339,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ITEM_REFRESHFORRANDOM",
+      "code": 8336,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ITEM_RESOLVE",
+      "code": 8340,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_LINK",
+      "code": 8343,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_RENAME_REQ",
+      "code": 8345,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MALL_SELL_ITEM",
+      "code": 8448,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MALL_LIST_SELL",
+      "code": 8449,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MALL_PLAYER_ITEMS",
+      "code": 8450,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MALL_AUCTION",
+      "code": 8451,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MALL_LIST_AUCTION",
+      "code": 8452,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MALL_FIX_AUCTION",
+      "code": 8453,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MALL_CANCEL_SELL",
+      "code": 8454,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MALL_SEARCH",
+      "code": 8457,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BAG_USESTORE",
+      "code": 8484,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHANGE_SKILL",
+      "code": 8480,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ACTIVE_SECONDSKILL",
+      "code": 8479,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_WORLDMAP_PVPFIGHT",
+      "code": 8488,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_VOTING_LIST",
+      "code": 8241,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_VOTING",
+      "code": 8481,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SHOPITEM_BUY",
+      "code": 8482,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SHOPITEM_FRESH",
+      "code": 8483,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BLESSING_ALTER",
+      "code": 8489,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BLESSING_WATCH",
+      "code": 8485,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_RELOGIN_CMD",
+      "code": 8496,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHECK_CODE",
+      "code": 8514,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHECK_SHOW_CODE",
+      "code": 8516,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VIP_COIN_OPEN",
+      "code": 8521,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CAMPAIGN_SWEEP",
+      "code": 8528,
+      "status": "router_present"
+    },
+    {
+      "name": "C_CHECK_SEND",
+      "code": 8524,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ATTACK_CONSTIA",
+      "code": 8468,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REQUEST_GUILDLIST",
+      "code": 8477,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_HANGUP_PVP",
+      "code": 8525,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OPRATE_REPLACEMENTS",
+      "code": 8526,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_HERO_TALENT_GRADE_UP",
+      "code": 5187,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MOUNT_EDIT",
+      "code": 8529,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MOUNT_AVATARLIST",
+      "code": 8530,
+      "status": "router_present"
+    },
+    {
+      "name": "C_MOUNT_CHANGE",
+      "code": 8532,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MOUNT_KING_ADD_GP",
+      "code": 8540,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ARMYMOUNT_AVATARCHANGE",
+      "code": 8533,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REQUEST_CHALLENGE_NEEDOFFER",
+      "code": 8478,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REQUEST_GUILDCHALLENGE",
+      "code": 8472,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GUILDTEAM_PLAYER_EDIT",
+      "code": 8473,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MOUNTAVATAR_ACTIVE",
+      "code": 8536,
+      "status": "router_present"
+    },
+    {
+      "name": "C_ACTIVE_EXCHANGE",
+      "code": 8539,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_KING_CONTRACT",
+      "code": 8543,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_QUESTIONNARIE_ANSWER",
+      "code": 8534,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CANCEL_TRANS",
+      "code": 8535,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_REFAIRE",
+      "code": 8548,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GUILD_GROUP",
+      "code": 8546,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GUILD_BUYBUFFER",
+      "code": 8547,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ENTER_GUILDCAMPAIGN",
+      "code": 8471,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_FAM_BATTLE",
+      "code": 8551,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MOUNT_INFO_SEND",
+      "code": 8567,
+      "status": "not_implemented"
+    },
+    {
+      "name": "DEBUG_BATTLE",
+      "code": 10003,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_B_USER_LOADOVER",
+      "code": 10007,
+      "status": "router_present"
+    },
+    {
+      "name": "U_B_HERO_ORDER",
+      "code": 10008,
+      "status": "router_present"
+    },
+    {
+      "name": "U_B_JOIN",
+      "code": 10004,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_B_USR_STOP_CMD",
+      "code": 10010,
+      "status": "router_present"
+    },
+    {
+      "name": "U_B_USR_GUIDE",
+      "code": 10009,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_B_QTE",
+      "code": 10015,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_B_FIGHT_MODE",
+      "code": 10016,
+      "status": "not_implemented"
+    },
+    {
+      "name": "B_REINFORCE_LOADOVER",
+      "code": 10018,
+      "status": "not_implemented"
+    },
+    {
+      "name": "B_SET_ATUO_ATTACK",
+      "code": 10020,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SET_ATUO_ATTACK",
+      "code": 8232,
+      "status": "not_implemented"
+    },
+    {
+      "name": "B_USE_ITEM",
+      "code": 10499,
+      "status": "not_implemented"
+    },
+    {
+      "name": "B_USE_TRIAL",
+      "code": 10507,
+      "status": "not_implemented"
+    },
+    {
+      "name": "B_PAUSE_FINISHED",
+      "code": 10022,
+      "status": "router_present"
+    },
+    {
+      "name": "B_REMOVE_BATTLE",
+      "code": 10497,
+      "status": "not_implemented"
+    },
+    {
+      "name": "B_WITHDRAW_BATTLE",
+      "code": 10518,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REBATE_DATA",
+      "code": 8574,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BUY_TRIAL",
+      "code": 8582,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CR_WARFIELD_CHAT",
+      "code": 25096,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CR_WARFIELD_USER_INFO",
+      "code": 25097,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PAWN_CHANGE",
+      "code": 8580,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SUMACTIVE_GATE",
+      "code": 8586,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CAR_CAMPAIGN_START",
+      "code": 8583,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VEHICLE_SYNC_POSITION",
+      "code": 8587,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VEHICLE_SWITCH_MONITOR",
+      "code": 8588,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TAKE_CROSS_SCORE_REWARD",
+      "code": 8590,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_APPELL_EXCHANGE",
+      "code": 8597,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CC",
+      "code": 8598,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FASHION_COMPOSE",
+      "code": 8594,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FASHION_SWITCH",
+      "code": 8595,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FASHION_SHOP_BUY",
+      "code": 8592,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHECK_WARFIELD_COUNT",
+      "code": 8599,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VEHICLE_LIST_REQ",
+      "code": 8618,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VEHICLE_CHOOSE_VEHICLE",
+      "code": 8611,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VEHICLE_QUICK_PLAY",
+      "code": 8608,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VEHICLE_QUICK_PLAY_CANCEL",
+      "code": 8609,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VEHICLE_MOVE",
+      "code": 8615,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VEHICLE_ATTACK",
+      "code": 8616,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VEHICLE_PICK_PROP",
+      "code": 8617,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VEHICLE_LEAVE_CAMPAIGN",
+      "code": 8610,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ACTIVE_VEHICLE",
+      "code": 8619,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SMALL_BUGLE_FREE_COUNT",
+      "code": 8705,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_AAS_SWITCH_CHANGE",
+      "code": 8620,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BOTTLE_OP",
+      "code": 8604,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BAG_BATCH_SELL",
+      "code": 8624,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FASHION_INFO",
+      "code": 8625,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_PET_OP",
+      "code": 8621,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TAKE_360_REWARD",
+      "code": 8722,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REQUEST_360_REWARD",
+      "code": 8723,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GAME_STORY_REQUEST",
+      "code": 8629,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GAME_STORY_REWARD",
+      "code": 8630,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SEND_CROSS_BIGBUGLE",
+      "code": 8623,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FASHION_SPECIAL",
+      "code": 8631,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PLAYER_SPACE_ENTER",
+      "code": 8688,
+      "status": "implemented_local_sky_city"
+    },
+    {
+      "name": "C_PLAYER_SPACE_LEAVE",
+      "code": 8689,
+      "status": "implemented_local_sky_city"
+    },
+    {
+      "name": "C_PLAYER_SPACE_MOVE",
+      "code": 8690,
+      "status": "implemented_local_sky_city"
+    },
+    {
+      "name": "C_PLAYER_SPACE_NODE_TRIGGER",
+      "code": 8692,
+      "status": "implemented_local_sky_city"
+    },
+    {
+      "name": "C_GET_SPACE_PLAYER_ARMY_INFO",
+      "code": 8701,
+      "status": "implemented_local_sky_city"
+    },
+    {
+      "name": "C_FATE_REQUEST",
+      "code": 8628,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_FATE_REQUEST",
+      "code": 4544,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_FATE_TRAIN",
+      "code": 8626,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FATE_TURN",
+      "code": 8627,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ENTER_MINE_FIELD",
+      "code": 8633,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BUY_DISCOUNT",
+      "code": 8693,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FLASH_SALE_FRESH",
+      "code": 8632,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ENTER_PETISLAND",
+      "code": 8694,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHECK_MOVEABLE",
+      "code": 8700,
+      "status": "implemented_local_sky_city"
+    },
+    {
+      "name": "C_GET_PLAYER_PET_INFO",
+      "code": 8702,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHALLENGE_PET",
+      "code": 8724,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PET_CHALLENGE_FORMATION",
+      "code": 8725,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PET_CHALLENGE_SKILL",
+      "code": 8726,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PET_CHALLENGE_END_BATTLE",
+      "code": 8727,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_U_ACTIVE_DEPOSIT",
+      "code": 8703,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PET_RANK_REWARD",
+      "code": 8728,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REPEAT_REWARD_FINISH",
+      "code": 8729,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REPEAT_REWARD_FINISH_IMMEDIATELY",
+      "code": 8730,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REPEAT_REWARD_UPDATE_FINISH",
+      "code": 8731,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TAKE_REPEAT_REWARD",
+      "code": 8732,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SPACE_COLLECTION_FINISHED",
+      "code": 8733,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_DRAGON_SOUL_REQ",
+      "code": 9033,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_DRAGON_REQUEST",
+      "code": 8642,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BATTLEGUARD_OP",
+      "code": 8742,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_APPLY_INVITE_TEAM",
+      "code": 8734,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHANGE_CAPTAIN",
+      "code": 8736,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_EDIT_TEAM_FIGHT_POS",
+      "code": 8737,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_INVITE_TEAM",
+      "code": 8738,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_KICK_TEAM_MEMBER",
+      "code": 8739,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LEAVE_TEAM_FOR_NOW",
+      "code": 8740,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_QUIT_TEAM",
+      "code": 8741,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TREASUREMAP_OP",
+      "code": 8744,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TREASUREMAP_BATTLE_REINFORCE",
+      "code": 8745,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TREASUREMAP_REQUEST",
+      "code": 8746,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BACK_PLAYER_REWARD",
+      "code": 8634,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHALLENGE_SELF",
+      "code": 8635,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TEAM_REFUSE",
+      "code": 8746,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ENTER_CASTLE",
+      "code": 8747,
+      "status": "router_present"
+    },
+    {
+      "name": "C_SERVEN_LEAD",
+      "code": 8749,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LOTTERY_REWARD",
+      "code": 8748,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LOTTERY_REQUEST",
+      "code": 8750,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FRESHMAN_DEPOSIT",
+      "code": 8751,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHECK_ACCELERATOR",
+      "code": 20010,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TOLLGATE_GET_REWARD",
+      "code": 8752,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TOLLGATE_REQUEST",
+      "code": 8753,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TOLLGATE_SCORE",
+      "code": 8754,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TOLLGATE_REQUEST_ATTACK",
+      "code": 8755,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_UPDATE_AREA",
+      "code": 8636,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GET_AREA_REWARD",
+      "code": 8637,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GET_BUGLE",
+      "code": 8638,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BUGLE_ROULETTE",
+      "code": 8639,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BUGLE_OPEN",
+      "code": 8640,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VIPCUSTOM_ADD",
+      "code": 8756,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_DRAGON_TRANSFER",
+      "code": 8643,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MOULD_ITEM",
+      "code": 8644,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FASHION_APPLRAISAL",
+      "code": 8781,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MONTH_CARD",
+      "code": 8783,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SLOT_ACTIVE_REQ",
+      "code": 9500,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ANSWER_REQUEST_OPTION",
+      "code": 9501,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CASTLE_ATTACK",
+      "code": 9506,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SEEK_REQ",
+      "code": 9502,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_RECOVER",
+      "code": 9503,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MULITY_CAMPAIGN_REQUEST",
+      "code": 9504,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FISH_POOL",
+      "code": 9507,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GET_GEMMAZE_INFO",
+      "code": 9508,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GEMMAZE_GEMMOVE",
+      "code": 9509,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GEMMAZE_INVITE",
+      "code": 9510,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GEMMAZE_INVITE_OP",
+      "code": 9515,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GEMMAZE_BUYTIMES",
+      "code": 9516,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GEMMAZE_GETREWARDBOX",
+      "code": 9513,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GEMMAZE_GETALL",
+      "code": 9517,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MAPBOSS_DATAS",
+      "code": 9525,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MAPBOX_PICK",
+      "code": 9526,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MAIL_CHECK",
+      "code": 9591,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHECK_PHONE_MAIN_INFO",
+      "code": 9587,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_VICEPASSWORD",
+      "code": 8806,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LOCK_OR_UNLOCK",
+      "code": 8809,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MICRO_CLIENT_INFO",
+      "code": 5041,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_FRIEND_SEARCH_NICKNAME",
+      "code": 15049,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TAKE_FIRST_CHARGE_REWARD",
+      "code": 8704,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ONLINE_REWARD",
+      "code": 8782,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ONLINE_REWARD_ENSURE",
+      "code": 8788,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GRADE_PACKET",
+      "code": 8784,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ALL_CHANGE_OP",
+      "code": 8800,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SEVEN_TARGET_INFO",
+      "code": 8785,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SEVEN_TARGET_TASK_RECEIVE",
+      "code": 8786,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SEVEN_TARGET_GIFT_RECEIVE",
+      "code": 8787,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SEVEN_SIGN_RECEIVE",
+      "code": 8789,
+      "status": "router_present"
+    },
+    {
+      "name": "C_DEGREE_ACTIVITY_DATA_REFRESH",
+      "code": 8236,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SEVEN_SIGN_INFO",
+      "code": 8790,
+      "status": "router_present"
+    },
+    {
+      "name": "C_GROWTH_FUND_INFO",
+      "code": 8791,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GROWTH_FUND_RECEIVE",
+      "code": 8792,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TEMPLE_INFO",
+      "code": 8795,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TEMPLE_RECEIVE",
+      "code": 8796,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHARGE_ORDER",
+      "code": 8797,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHARGE_ORDER_STATUS",
+      "code": 8798,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FETCH_TOKEN",
+      "code": 8801,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MAPSHOPINFO",
+      "code": 9528,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BAG_BATCH_MOVE",
+      "code": 8643,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MOUNT_UPSTAR",
+      "code": 8802,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SPACEMAP_ATTACK",
+      "code": 9547,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CAMPAIGN_START",
+      "code": 5039,
+      "status": "router_present"
+    },
+    {
+      "name": "CR_MULTI_MATCH_CHOOSE",
+      "code": 25157,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CROSSMULTI_ROOMSTATE",
+      "code": 9556,
+      "status": "not_implemented"
+    },
+    {
+      "name": "B_ROOM_UPDATE_STATE",
+      "code": 25089,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CR_FIGHTPOS_EDIT",
+      "code": 25160,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CR_MULTICAMPAIGN_MATCH",
+      "code": 25156,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CROSS_INVITE_CHOOSE",
+      "code": 9557,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CR_VOTEKILL_CHOOSE",
+      "code": 25152,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CAMPAIGN_ROOM_KILLPLAYER",
+      "code": 5031,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CR_FIGHTPOS_REQ",
+      "code": 25159,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_NEW_MEMORY_CARD_OP",
+      "code": 8682,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PASS_REWARD_INFO",
+      "code": 8803,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PASS_BUY",
+      "code": 8807,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PASS_TASK_FRESH",
+      "code": 8805,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LUCK_EXCHANGE",
+      "code": 9610,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_BUBBLE_CHANGE",
+      "code": 8808,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_BOSS_CALL",
+      "code": 8847,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_BOSS_UPGRADE",
+      "code": 8846,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SKILL_EDIT",
+      "code": 8851,
+      "status": "router_present"
+    },
+    {
+      "name": "C_TREASURE_MINE_LIVE",
+      "code": 8852,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_NEW_YEAR_BOX_ACTIVE",
+      "code": 8994,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CCCACTIVE_CLIENTOP",
+      "code": 9645,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TREASURE_MINE_UNOCCP",
+      "code": 8859,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_EQUIP_RUNE_STOME",
+      "code": 8853,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_RUNE_RESOLVE",
+      "code": 8854,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_RUNE_UP",
+      "code": 8855,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_RUNE_UNLOAD",
+      "code": 8856,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LOTTERY_RUNE",
+      "code": 8857,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TELENT_SORT",
+      "code": 5188,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TELENT_TREE",
+      "code": 5189,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_UIPLAY_CHALLENGE",
+      "code": 8757,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STAR_ARRANGE",
+      "code": 8858,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TRANSLATE_TEXT",
+      "code": 8861,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PET_EQUIP_STRENTH",
+      "code": 8860,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PET_EQUIP_SUCCINCT",
+      "code": 8866,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_PET_EQUIP_RESOLVE",
+      "code": 8862,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SHARE_REWARD",
+      "code": 8863,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STORE_RATINGS_REPORT",
+      "code": 8864,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MICRO_TERMINAL_REWARD",
+      "code": 8865,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TATTOO_REQ",
+      "code": 9568,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_DISCOUNT_MALL_OP",
+      "code": 9628,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MONOPOLY_CAMPAIGN_ENTER",
+      "code": 8811,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MONOPOLY_CAMPAIGN_ROLL_DICE",
+      "code": 8812,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MONOPOLY_CAMPAIGN_TRIGGER_EVENT",
+      "code": 8813,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MONOPOLY_CAMPAIGN_BUY_EVENT",
+      "code": 8814,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MONOPOLY_CAMPAIGN_LEAVE",
+      "code": 8815,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MONOPOLY_SLOT_MACHINE",
+      "code": 8816,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MONOPOLY_CAMPAIGN_BUY_MAGIC_DICE",
+      "code": 8817,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TURNTABLE_REQ",
+      "code": 8649,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_PLAYER_TOKENINFO",
+      "code": 4714,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MULTILORDS_MAININFO",
+      "code": 8646,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_MULTILORDS_MAININFO",
+      "code": 4857,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MUTIL_LORDS_SIGNUP",
+      "code": 8838,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_MULTILORDS_SIGN_NOTIC",
+      "code": 4856,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MULTILORDS_SIGN_RECIVE",
+      "code": 8832,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MUTIL_LORDS_ROOMCREATE",
+      "code": 8849,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MULTILORDS_INSPIRE",
+      "code": 8645,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MULTILORDS_LOCAL_FINAL",
+      "code": 8647,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_MULTILORDS_LOCAL_FINAL",
+      "code": 4858,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MULTILORDS_BETWIN_REQ",
+      "code": 8648,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_REQUEST_MULTIBET_LIST",
+      "code": 4859,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MULTILORDS_WORSHIP",
+      "code": 8833,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MUTIL_LORDS_FINALORDER_REQUEST",
+      "code": 8836,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_MULTILORDS_FINALORDER",
+      "code": 4855,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MUTIL_LORDS_BET",
+      "code": 8837,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_REMOTE_PET_OP",
+      "code": 9544,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_REMOTE_FRIEND_PET",
+      "code": 15057,
+      "status": "not_implemented"
+    },
+    {
+      "name": "B_REMOTE_PET_ORDER",
+      "code": 14001,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FASHION_EXCHANGE",
+      "code": 9582,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_HONOR_EQUIP_LEVELUP",
+      "code": 8877,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STAR_SPECIAL",
+      "code": 8876,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_QQ_DAWANKA_INFO",
+      "code": 4969,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_QQ_DAWANKA_REQ",
+      "code": 8878,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STACK_HEAD_REQUEST",
+      "code": 9599,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHALLENGE_REQUEST",
+      "code": 8879,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_RUNE_HOLE_INFO",
+      "code": 9584,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_RUNE_HOLE_OP",
+      "code": 9585,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CASERN_AUTO_SETTING",
+      "code": 9586,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CARNIVAL_OP",
+      "code": 9019,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LINKGAME_OP",
+      "code": 5442,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FIVE_CARD_POKER_OP",
+      "code": 5443,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MEMORY_CARD_OP",
+      "code": 5444,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ACTIVE_SECONDTALENT",
+      "code": 5190,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_HERO_TALENT_CHANGE",
+      "code": 5191,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_WISH_POOL_OP",
+      "code": 9020,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_GOLDN_LIST",
+      "code": 9588,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_FIGHT",
+      "code": 9589,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SUDOKU_OP",
+      "code": 5445,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MARKET_ORDER_ACTION",
+      "code": 8448,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MARKET_INFO_REQ",
+      "code": 8450,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_DECLEAR_WAR",
+      "code": 9590,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_WAR_GIVE_UP_CASTLE",
+      "code": 9603,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_WAR_NODE_STATE",
+      "code": 9602,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_WAR_ARRANGE_GARRISON",
+      "code": 9604,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_WAR_OCCUPY_BUILD",
+      "code": 9605,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_WAR_ATTACK",
+      "code": 9606,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_WAR_BUY_ACTION_POINT",
+      "code": 9607,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_WAR_EDIT_GUILD_NOTICE",
+      "code": 9608,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_WAR_OBSERVE_LEFT",
+      "code": 9679,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_WAR_CANCEL_OCCUPY",
+      "code": 9680,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_WAR_ONE_PLAYER_STATUS",
+      "code": 9681,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ARTIFACT_APPLRAISAL",
+      "code": 9609,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ARTIFACT_RECAST",
+      "code": 9611,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_KF_REPLY_QUERY",
+      "code": 8758,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GET_PET_ARTIFACT_LIST",
+      "code": 8701,
+      "status": "implemented_local_sky_city"
+    },
+    {
+      "name": "CH_INBLACK_LIST",
+      "code": 15054,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GET_ALL_FRAME",
+      "code": 8810,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FRAME_CHANGE",
+      "code": 8808,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_AVATAR_REQ",
+      "code": 9092,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_VEHICLE_INFO",
+      "code": 9682,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_VEHICLE_CHANGE_PLAYER",
+      "code": 9683,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_VEHICLE_ATTACK",
+      "code": 9684,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OUT_CITY_VEHICLE_FIXPOS",
+      "code": 9685,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_EXTRAJOB_REQ",
+      "code": 8608,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_EXTRAJOBEQUIP_REQ",
+      "code": 8609,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_USER_EXTRAJOB_REQ",
+      "code": 8610,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SECRET_INFO",
+      "code": 9686,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SECRET_CHOOSE",
+      "code": 9687,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SECRET_OP",
+      "code": 9688,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_USER_BIND_QUERY",
+      "code": 8347,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_USER_UPACCOUNT_REWARD",
+      "code": 8348,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_TASK_INFO",
+      "code": 9689,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_TASK_REWARD",
+      "code": 9690,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_TASK_REFRESH",
+      "code": 9691,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_TASK_UPGRADESTAR",
+      "code": 9692,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SECRET_LAYER_INFO",
+      "code": 9693,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LIMITEDTIMEGIFT_REQ",
+      "code": 8237,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CLIENT_EVENT",
+      "code": 8519,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OPEN_SERVICE_HISTORY_INFO",
+      "code": 9695,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MARRIAGE_REQUEST",
+      "code": 9712,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MARRIAGE_HEART",
+      "code": 9713,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MARRIAGE_CAMPAIGN_REQ",
+      "code": 9714,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ENTER_ACTIVE_VEHICLE",
+      "code": 9971,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ACTIVE_VEHICLE_MOVE",
+      "code": 25218,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ACTIVE_VEHICLE_ATTACK",
+      "code": 25216,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ACTIVE_VEHICLE_PICK",
+      "code": 25217,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LEAVE_ACTIVE_VEHICLE",
+      "code": 25220,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHAIRS_CLIENT_OP",
+      "code": 9645,
+      "status": "not_implemented"
+    },
+    {
+      "name": "B_BATTLE_OVER",
+      "code": 10508,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GOLDENROAD_FRESH",
+      "code": 9520,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GOLDENROAD_CASTDICE",
+      "code": 9521,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GOLDENROAD_BROADCAST",
+      "code": 9522,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_BATTLE_REQUEST",
+      "code": 8779,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GROWTH_FUND_LEVEL",
+      "code": 9972,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_NEW_ACTIVE_OP",
+      "code": 9984,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_ACHIEVE_OP",
+      "code": 8780,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_NEWBIE_GUIDE_OP",
+      "code": 9037,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_DOUBLE_MOUNT_OP",
+      "code": 8992,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FOLLOW_US_OP",
+      "code": 9039,
+      "status": "not_implemented"
+    },
+    {
+      "name": "B_USE_MARRIAGE_SKILL",
+      "code": 10506,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MOLE_GAME_OP",
+      "code": 9021,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SKY_TREASURE_LOTTERY_INFO_REQ",
+      "code": 9025,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SKY_TREASURE_LOTTERY_RECORD_REQ",
+      "code": 9026,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SKY_TREASURE_EXCHANGE_REQ",
+      "code": 9027,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SKY_TREASURE_REQ_RANK_INFO",
+      "code": 9030,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SKY_TREASURE_RANK_HISTORY_REQ",
+      "code": 9031,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_RARE_WEAPON_MAIN_REQ",
+      "code": 9040,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_NEW_RECOVER_REQ",
+      "code": 9032,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_STARGAZING_OP",
+      "code": 9041,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONSORTIA_PVE_REQ",
+      "code": 8554,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_COMBAT_GUARDIAN_REQ",
+      "code": 9034,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SKY_LOTTERY_REQ",
+      "code": 8559,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_OPTION_PACKS_REQ",
+      "code": 9645,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TOKEN_CHARGE",
+      "code": 8806,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GUARD_REQ",
+      "code": 9057,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MATE_MAININFO",
+      "code": 8978,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MATE_LORDS_SIGNUP",
+      "code": 8975,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MATE_LORDS_ROOM_CREATE",
+      "code": 8976,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MATE_INSPIRE",
+      "code": 8979,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MATE_SKILL_SHOP",
+      "code": 8974,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GUARD_DRAW",
+      "code": 9059,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GUARD_EXPEDITIONARY",
+      "code": 9058,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GUARD_ARENA_REQ",
+      "code": 9060,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SHOP_GIFT_PACKAGE_TOTAL_INFO",
+      "code": 9061,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TRANSFER_REQ",
+      "code": 8556,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_NAVIGATION",
+      "code": 9062,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CONFUSION_TOWER",
+      "code": 9063,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_HERO_ADVANCEDTALENT_REQ",
+      "code": 5192,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_DIVINE_TREE_REQUEST",
+      "code": 8773,
+      "status": "not_implemented"
+    },
+    {
+      "name": "U_C_STAR_MOON_RUINS_REQUEST",
+      "code": 9645,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MEDAL_ITEM",
+      "code": 8869,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_TWILIGHT_LAND_ENTER",
+      "code": 9066,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SHARE_FOR_GIFT",
+      "code": 9575,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHARGE_LOTTERY_V2_ACTIVE_REQ",
+      "code": 9645,
+      "status": "not_implemented"
+    },
+    {
+      "name": "CH_HOUSE_REQ",
+      "code": 15058,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_HOUSE_BONFIRE_REQ",
+      "code": 9069,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_RARE_WEAPON_MAIN_DRAW_REQ",
+      "code": 9068,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_DRAGON_CRYSTAL_MINING",
+      "code": 9071,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SHOP_CAR_BUY",
+      "code": 9070,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_FATE_HIDE",
+      "code": 8641,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GAME_BOX_REQ",
+      "code": 9075,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CRISIS_CAMPAIGN",
+      "code": 9077,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_LANDER_RANK_REQ",
+      "code": 9080,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SEASON_SHOP_REQ",
+      "code": 9078,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CRISIS_COLLECT",
+      "code": 9079,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CAMPAIGN_SPECIALDROPS",
+      "code": 8612,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHAT_HALL_ENTER",
+      "code": 9081,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_SEASON_PASS_REQ",
+      "code": 9076,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CROSS_ROOM_OP",
+      "code": 9087,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHAT_HALL_MINE_GAME_STOP",
+      "code": 9089,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_CHAT_HALL_SWITCH_CAMPAIGN",
+      "code": 9088,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_MAPBOSS_REVIVE",
+      "code": 9526,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GUARD_PATRO_REQ",
+      "code": 9091,
+      "status": "not_implemented"
+    },
+    {
+      "name": "C_GUILD_MAZE_OP",
+      "code": 9098,
+      "status": "not_implemented"
+    }
+  ]
+}

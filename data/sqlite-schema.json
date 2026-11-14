@@ -1,0 +1,511 @@
+{
+  "user_version": 1,
+  "core_sql": "\nBEGIN IMMEDIATE;\nCREATE TABLE accounts (\n    id INTEGER PRIMARY KEY,\n    username TEXT NOT NULL UNIQUE COLLATE NOCASE,\n    password_hash TEXT NOT NULL,\n    created_at INTEGER NOT NULL\n);\nCREATE TABLE sessions (\n    token_hash TEXT PRIMARY KEY,\n    account_id INTEGER NOT NULL REFERENCES accounts(id) ON DELETE CASCADE,\n    expires_at INTEGER NOT NULL\n);\nCREATE INDEX sessions_account ON sessions(account_id);\nCREATE INDEX sessions_expiry ON sessions(expires_at);\nCREATE TABLE characters (\n    id INTEGER PRIMARY KEY,\n    account_id INTEGER NOT NULL UNIQUE REFERENCES accounts(id) ON DELETE CASCADE,\n    name TEXT NOT NULL,\n    name_key TEXT NOT NULL UNIQUE,\n    archetype TEXT NOT NULL CHECK (archetype IN ('warrior','mage','archer')),\n    level INTEGER NOT NULL DEFAULT 1 CHECK (level >= 1),\n    gold INTEGER NOT NULL DEFAULT 0 CHECK (gold BETWEEN 0 AND 2147483647),\n    diamonds INTEGER NOT NULL DEFAULT 0 CHECK (diamonds BETWEEN 0 AND 2147483647),\n    created_at INTEGER NOT NULL\n);\nCREATE TABLE diamond_ledger (\n    id INTEGER PRIMARY KEY,\n    character_id INTEGER NOT NULL REFERENCES characters(id),\n    before_amount INTEGER NOT NULL CHECK (before_amount BETWEEN 0 AND 2147483647),\n    after_amount INTEGER NOT NULL CHECK (after_amount BETWEEN 0 AND 2147483647),\n    reason TEXT NOT NULL,\n    created_at INTEGER NOT NULL\n);\nPRAGMA user_version = 1;\nCOMMIT;\n",
+  "core_columns": {
+    "accounts": [
+      "created_at",
+      "id",
+      "password_hash",
+      "username"
+    ],
+    "sessions": [
+      "account_id",
+      "expires_at",
+      "token_hash"
+    ],
+    "characters": [
+      "account_id",
+      "archetype",
+      "created_at",
+      "diamonds",
+      "gold",
+      "id",
+      "level",
+      "name",
+      "name_key"
+    ],
+    "diamond_ledger": [
+      "after_amount",
+      "before_amount",
+      "character_id",
+      "created_at",
+      "id",
+      "reason"
+    ]
+  },
+  "additional_sql": [
+    "CREATE TABLE IF NOT EXISTS game_actions (\n character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n request_id TEXT NOT NULL, operation TEXT NOT NULL, payload_hash TEXT NOT NULL,\n result_json TEXT NOT NULL, PRIMARY KEY(character_id,request_id))",
+    "CREATE TABLE IF NOT EXISTS game_army_formation (\n character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,\n hero_pos INTEGER NOT NULL CHECK(hero_pos IN(2,3)),pawn_pos INTEGER NOT NULL CHECK(pawn_pos IN(2,3)),\n sorted INTEGER NOT NULL DEFAULT 0 CHECK(sorted IN(0,1)),CHECK(hero_pos!=pawn_pos))",
+    "CREATE TABLE IF NOT EXISTS game_buildings (\n character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n son_type INTEGER NOT NULL, template_id INTEGER NOT NULL,\n target_template INTEGER, finishes_at INTEGER, PRIMARY KEY(character_id,son_type))",
+    "CREATE TABLE IF NOT EXISTS game_campaign_results (\n battle_id TEXT PRIMARY KEY,character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n run_id TEXT NOT NULL,campaign_id INTEGER NOT NULL,node_id INTEGER NOT NULL,\n won INTEGER NOT NULL CHECK(won IN(0,1)),player_hp INTEGER NOT NULL CHECK(player_hp>=0),\n enemies_json TEXT NOT NULL,created_at INTEGER NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS game_campaign_runs (\n character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,\n revision INTEGER NOT NULL CHECK(revision>=0),state_json TEXT NOT NULL CHECK(length(state_json)<=262144))",
+    "CREATE TABLE IF NOT EXISTS game_duels (\n id TEXT PRIMARY KEY, challenger INTEGER NOT NULL REFERENCES characters(id),\n target INTEGER NOT NULL REFERENCES characters(id),\n state TEXT NOT NULL CHECK(state IN('invited','rejected','finished','expired')),\n expires_at INTEGER NOT NULL, seed TEXT NOT NULL, result_json TEXT,\n created_at INTEGER NOT NULL, CHECK(challenger!=target))",
+    "CREATE TABLE IF NOT EXISTS game_economy (\n character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,\n settled_at INTEGER NOT NULL, remainder INTEGER NOT NULL DEFAULT 0 CHECK(remainder BETWEEN 0 AND 3599),\n hourly_rate INTEGER NOT NULL CHECK(hourly_rate>=0),tax_day INTEGER NOT NULL,\n tax_used INTEGER NOT NULL DEFAULT 0 CHECK(tax_used>=0))",
+    "CREATE TABLE IF NOT EXISTS game_facts (\n character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n kind TEXT NOT NULL, subject INTEGER NOT NULL, amount INTEGER NOT NULL CHECK(amount>=0),\n PRIMARY KEY(character_id,kind,subject))",
+    "CREATE TABLE IF NOT EXISTS game_guild_applications (\n guild_id INTEGER NOT NULL REFERENCES game_guilds(id) ON DELETE CASCADE,\n character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n created_at INTEGER NOT NULL, PRIMARY KEY(guild_id,character_id))",
+    "CREATE TABLE IF NOT EXISTS game_guild_members (\n character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,\n guild_id INTEGER NOT NULL REFERENCES game_guilds(id) ON DELETE CASCADE,\n rank TEXT NOT NULL CHECK(rank IN('leader','officer','member')),\n contribution INTEGER NOT NULL DEFAULT 0, joined_at INTEGER NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS game_guilds (\n id INTEGER PRIMARY KEY, name TEXT NOT NULL, name_key TEXT NOT NULL UNIQUE,\n leader_id INTEGER NOT NULL REFERENCES characters(id), creator_id INTEGER NOT NULL REFERENCES characters(id), level INTEGER NOT NULL DEFAULT 1,\n bank INTEGER NOT NULL DEFAULT 0 CHECK(bank>=0), description TEXT NOT NULL DEFAULT '', created_at INTEGER NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS game_items (\n id INTEGER PRIMARY KEY, character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n template_id INTEGER NOT NULL, bag INTEGER NOT NULL CHECK(bag IN(1,4,6)),\n position INTEGER NOT NULL CHECK(position>=0), count INTEGER NOT NULL CHECK(count>0),\n bound INTEGER NOT NULL CHECK(bound IN(0,1)), UNIQUE(character_id,bag,position))",
+    "CREATE TABLE IF NOT EXISTS game_pawn_audit (\n id INTEGER PRIMARY KEY,character_id INTEGER NOT NULL REFERENCES characters(id),\n operation TEXT NOT NULL,payload_json TEXT NOT NULL,created_at INTEGER NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS game_pawn_slots (\n character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n slot INTEGER NOT NULL CHECK(slot IN(0,1)),son_type INTEGER NOT NULL,\n count INTEGER NOT NULL CHECK(count>0),PRIMARY KEY(character_id,slot),\n FOREIGN KEY(character_id,son_type) REFERENCES game_pawns(character_id,son_type))",
+    "CREATE TABLE IF NOT EXISTS game_pawns (\n character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n son_type INTEGER NOT NULL, template_id INTEGER NOT NULL,\n reserve INTEGER NOT NULL DEFAULT 0 CHECK(reserve>=0),PRIMARY KEY(character_id,son_type))",
+    "CREATE TABLE IF NOT EXISTS game_progress (\n character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,\n xp INTEGER NOT NULL DEFAULT 0 CHECK(xp>=0), pending_xp INTEGER NOT NULL DEFAULT 0 CHECK(pending_xp>=0),\n origin TEXT NOT NULL, revision INTEGER NOT NULL DEFAULT 0)",
+    "CREATE TABLE IF NOT EXISTS game_quests (\n character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n quest_id INTEGER NOT NULL, status TEXT NOT NULL CHECK(status IN('accepted','claimed')),\n accepted_at INTEGER NOT NULL, claimed_at INTEGER, claims INTEGER NOT NULL DEFAULT 0,\n period INTEGER NOT NULL DEFAULT 0, baseline_json TEXT NOT NULL DEFAULT '{}', PRIMARY KEY(character_id,quest_id))",
+    "CREATE TABLE IF NOT EXISTS game_resources (\n character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n currency TEXT NOT NULL CHECK(currency IN('honor','guild_offer','bound_diamonds','crystals','souls','strategy','glory','blank_pet_cards','stamina','score','maze_coin','mine_score','guild_pve','hero_xp')),\n amount INTEGER NOT NULL CHECK(amount BETWEEN 0 AND 2147483647), PRIMARY KEY(character_id,currency))",
+    "CREATE TABLE IF NOT EXISTS game_reward_events (\n character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n event_id TEXT NOT NULL, payload_json TEXT NOT NULL, created_at INTEGER NOT NULL,\n PRIMARY KEY(character_id,event_id))",
+    "CREATE TABLE IF NOT EXISTS game_skill_preferences (\n character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,\n enabled INTEGER NOT NULL CHECK(enabled IN(0,1)),percent INTEGER NOT NULL CHECK(percent BETWEEN 0 AND 100),\n normal_skill TEXT NOT NULL,special_skill TEXT NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS game_skills (\n character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,\n learned_json TEXT NOT NULL,fast_keys TEXT NOT NULL,spent INTEGER NOT NULL DEFAULT 0 CHECK(spent>=0))",
+    "CREATE TABLE IF NOT EXISTS game_wallet_log (\n id INTEGER PRIMARY KEY, character_id INTEGER NOT NULL REFERENCES characters(id),\n currency TEXT NOT NULL CHECK(currency IN('gold','diamonds')), delta INTEGER NOT NULL,\n before_amount INTEGER NOT NULL, after_amount INTEGER NOT NULL,\n reason TEXT NOT NULL, created_at INTEGER NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS game_world (\n character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,\n map_id INTEGER NOT NULL, x INTEGER NOT NULL, y INTEGER NOT NULL, moved_at REAL NOT NULL,\n move_revision INTEGER NOT NULL DEFAULT 0)",
+    "CREATE TABLE IF NOT EXISTS wartune_roles (\n    character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,\n    sex INTEGER NOT NULL CHECK (sex IN (0,1)),\n    icon INTEGER NOT NULL CHECK (icon BETWEEN 1 AND 6),\n    camp INTEGER NOT NULL CHECK (camp = 1),\n    site TEXT NOT NULL CHECK (length(site) BETWEEN 1 AND 64),\n    CHECK ((sex = 1 AND icon BETWEEN 1 AND 3) OR (sex = 0 AND icon BETWEEN 4 AND 6))\n)",
+    "CREATE TABLE IF NOT EXISTS wartune_tickets (\n    account_id INTEGER PRIMARY KEY REFERENCES accounts(id) ON DELETE CASCADE,\n    md5_key_hash TEXT NOT NULL CHECK (length(md5_key_hash) = 64),\n    session_token_hash TEXT NOT NULL REFERENCES sessions(token_hash) ON DELETE CASCADE,\n    site TEXT NOT NULL CHECK (length(site) BETWEEN 1 AND 64),\n    expires_at INTEGER NOT NULL\n)",
+    "CREATE TABLE IF NOT EXISTS wartune_training (\n                character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,\n                revision INTEGER NOT NULL CHECK(revision >= 0),\n                state_json TEXT NOT NULL CHECK(length(state_json) <= 65536),\n                updated_at INTEGER NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS wartune_training_events (\n                id TEXT PRIMARY KEY,\n                character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n                revision INTEGER NOT NULL,\n                kind TEXT NOT NULL,\n                state_json TEXT NOT NULL CHECK(length(state_json) <= 65536),\n                created_at INTEGER NOT NULL,\n                UNIQUE(character_id, revision))",
+    "CREATE TABLE IF NOT EXISTS wartune_training_results (\n                battle_id TEXT PRIMARY KEY,\n                character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,\n                node_id INTEGER NOT NULL,\n                won INTEGER NOT NULL CHECK(won IN(0,1)),\n                player_hp INTEGER NOT NULL CHECK(player_hp BETWEEN 0 AND 2147483647),\n                enemy_hp_json TEXT NOT NULL,\n                created_at INTEGER NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS game_notifications (id INTEGER PRIMARY KEY,character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,event_key TEXT NOT NULL,kind TEXT NOT NULL,message TEXT NOT NULL,payload_json TEXT NOT NULL,created_at INTEGER NOT NULL,UNIQUE(character_id,event_key))",
+    "CREATE INDEX IF NOT EXISTS game_notifications_owner ON game_notifications(character_id,id)",
+    "CREATE TABLE IF NOT EXISTS game_mail(id INTEGER PRIMARY KEY,character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,sender_id INTEGER,subject TEXT NOT NULL,body TEXT NOT NULL,reward_json TEXT NOT NULL,created_at INTEGER NOT NULL,read_at INTEGER,claimed_at INTEGER,deleted INTEGER NOT NULL DEFAULT 0,event_key TEXT NOT NULL,UNIQUE(character_id,event_key))",
+    "CREATE TABLE IF NOT EXISTS game_shop_purchases(id INTEGER PRIMARY KEY,character_id INTEGER NOT NULL REFERENCES characters(id),shop_id INTEGER NOT NULL,count INTEGER NOT NULL,created_at INTEGER NOT NULL)",
+    "CREATE INDEX IF NOT EXISTS game_shop_owner ON game_shop_purchases(character_id,shop_id,created_at)",
+    "CREATE TABLE IF NOT EXISTS game_daily(character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,last_day INTEGER NOT NULL DEFAULT -1,total_days INTEGER NOT NULL DEFAULT 0,reward_bits INTEGER NOT NULL DEFAULT 0)",
+    "CREATE TABLE IF NOT EXISTS game_guild_meta(guild_id INTEGER PRIMARY KEY REFERENCES game_guilds(id) ON DELETE CASCADE,placard TEXT NOT NULL DEFAULT '',open_app INTEGER NOT NULL DEFAULT 1)",
+    "CREATE TABLE IF NOT EXISTS game_guild_invites(id INTEGER PRIMARY KEY,guild_id INTEGER NOT NULL REFERENCES game_guilds(id) ON DELETE CASCADE,character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,inviter_id INTEGER NOT NULL REFERENCES characters(id),created_at INTEGER NOT NULL,UNIQUE(guild_id,character_id))",
+    "CREATE TABLE IF NOT EXISTS game_chat(id INTEGER PRIMARY KEY,character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,channel INTEGER NOT NULL,recipient_id INTEGER,scope TEXT NOT NULL,message TEXT NOT NULL,created_at INTEGER NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS game_guild_upgrades(guild_id INTEGER PRIMARY KEY REFERENCES game_guilds(id) ON DELETE CASCADE,target_level INTEGER NOT NULL,finishes_at INTEGER NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS game_migrations(name TEXT PRIMARY KEY,created_at INTEGER NOT NULL)",
+    "CREATE TABLE IF NOT EXISTS game_resource_ledger(id INTEGER PRIMARY KEY,character_id INTEGER NOT NULL REFERENCES characters(id),currency TEXT NOT NULL,delta INTEGER NOT NULL,before_amount INTEGER NOT NULL,after_amount INTEGER NOT NULL,reason TEXT NOT NULL,created_at INTEGER NOT NULL)",
+    "CREATE INDEX IF NOT EXISTS game_chat_owner_time ON game_chat(character_id,created_at)",
+    "CREATE INDEX IF NOT EXISTS game_mail_owner_deleted ON game_mail(character_id,deleted,id)",
+    "CREATE INDEX IF NOT EXISTS game_mail_sender_time ON game_mail(sender_id,created_at)",
+    "CREATE TABLE IF NOT EXISTS game_campaign_sweeps(id TEXT PRIMARY KEY,character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,campaign_id INTEGER NOT NULL,state_json TEXT NOT NULL,created_at INTEGER NOT NULL)",
+    "CREATE INDEX IF NOT EXISTS game_sweeps_owner ON game_campaign_sweeps(character_id,created_at)",
+    "CREATE UNIQUE INDEX IF NOT EXISTS game_sweeps_active ON game_campaign_sweeps(character_id) WHERE json_extract(state_json,'$.status')='running'",
+    "CREATE TABLE IF NOT EXISTS game_vip(character_id INTEGER PRIMARY KEY REFERENCES characters(id) ON DELETE CASCADE,xp INTEGER NOT NULL DEFAULT 0 CHECK(xp BETWEEN 0 AND 2147483647),imported INTEGER NOT NULL DEFAULT 0)",
+    "CREATE TABLE IF NOT EXISTS game_vip_events(character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,event_id TEXT NOT NULL,amount INTEGER NOT NULL CHECK(amount>=0),created_at INTEGER NOT NULL,PRIMARY KEY(character_id,event_id))",
+    "CREATE TABLE IF NOT EXISTS game_vip_claims(character_id INTEGER NOT NULL REFERENCES characters(id) ON DELETE CASCADE,grade INTEGER NOT NULL,type INTEGER NOT NULL,period INTEGER NOT NULL,created_at INTEGER NOT NULL,PRIMARY KEY(character_id,grade,type,period))",
+    "create table if not exists game_item_enhancements(item_id integer primary key references game_items(id) on delete cascade,character_id integer not null references characters(id) on delete cascade,grade integer not null check(grade>=0))",
+    "create table if not exists game_forge_stage(character_id integer not null references characters(id) on delete cascade,slot integer not null check(slot in(0,1)),item_id integer unique not null references game_items(id) on delete cascade,primary key(character_id,slot))",
+    "create table if not exists game_item_buffs(character_id integer not null references characters(id) on delete cascade,kind text not null,percent integer not null,expires_at integer not null,primary key(character_id,kind))",
+    "create table if not exists game_forge_actions(character_id integer not null references characters(id) on delete cascade,token text not null,item_id integer not null,from_grade integer not null,result_json text not null,primary key(character_id,token))",
+    "create table if not exists game_item_gems(item_id integer not null references game_items(id) on delete cascade,character_id integer not null references characters(id) on delete cascade,slot integer not null check(slot between 1 and 4),gem_template_id integer not null,bound integer not null check(bound in(0,1)),primary key(item_id,slot))",
+    "create table if not exists game_mounts(character_id integer not null references characters(id) on delete cascade,template_id integer not null,activated_at integer not null,expires_at integer not null,template_json text not null,primary key(character_id,template_id))",
+    "create table if not exists game_runes(character_id integer not null references characters(id) on delete cascade,rune_type integer not null,template_id integer not null,primary key(character_id,rune_type))",
+    "create table if not exists game_item_use_actions(character_id integer not null references characters(id) on delete cascade,token text not null,item_id integer not null,template_id integer not null,bag integer not null,pos integer not null,count integer not null,result_json text not null,primary key(character_id,token))",
+    "create table if not exists game_mount_state(character_id integer primary key references characters(id) on delete cascade,template_id integer not null check(template_id>0),mounted integer not null check(mounted in(0,1)),foreign key(character_id,template_id) references game_mounts(character_id,template_id))",
+    "create table if not exists game_gift_purchases(character_id integer not null references characters(id) on delete cascade,package_id integer not null,period text not null,count integer not null check(count>0),primary key(character_id,package_id,period))",
+    "create table if not exists game_fashion_state(character_id integer primary key references characters(id) on delete cascade,status text not null default '1,1,1,1')",
+    "create table if not exists game_craft_actions(character_id integer not null references characters(id) on delete cascade,token text not null,fingerprint text not null,result_json text not null,primary key(character_id,token))",
+    "create table if not exists game_fashion_progress(character_id integer primary key references characters(id) on delete cascade,grades integer not null default 1,gp integer not null default 0)",
+    "create table if not exists game_fashion_book(character_id integer not null references characters(id) on delete cascade,template_id integer not null,primary key(character_id,template_id))",
+    "create table if not exists game_fashion_looks(character_id integer primary key references characters(id) on delete cascade,looks_json text not null default '{}')",
+    "create table if not exists game_talent_progress(character_id integer primary key references characters(id) on delete cascade,grade integer not null default 0 check(grade>=0),spent integer not null default 0 check(spent>=0))",
+    "create table if not exists game_talent_skills(character_id integer not null references characters(id) on delete cascade,template_id integer not null,properties_json text not null,effects_json text not null,primary key(character_id,template_id))",
+    "create table if not exists game_fashion_appraisals(character_id integer not null references characters(id) on delete cascade,template_id integer not null,skill_id integer not null,properties_json text not null,primary key(character_id,template_id))"
+  ],
+  "all_columns": {
+    "accounts": [
+      "id",
+      "username",
+      "password_hash",
+      "created_at"
+    ],
+    "characters": [
+      "id",
+      "account_id",
+      "name",
+      "name_key",
+      "archetype",
+      "level",
+      "gold",
+      "diamonds",
+      "created_at"
+    ],
+    "diamond_ledger": [
+      "id",
+      "character_id",
+      "before_amount",
+      "after_amount",
+      "reason",
+      "created_at"
+    ],
+    "game_actions": [
+      "character_id",
+      "request_id",
+      "operation",
+      "payload_hash",
+      "result_json"
+    ],
+    "game_army_formation": [
+      "character_id",
+      "hero_pos",
+      "pawn_pos",
+      "sorted"
+    ],
+    "game_buildings": [
+      "character_id",
+      "son_type",
+      "template_id",
+      "target_template",
+      "finishes_at"
+    ],
+    "game_campaign_results": [
+      "battle_id",
+      "character_id",
+      "run_id",
+      "campaign_id",
+      "node_id",
+      "won",
+      "player_hp",
+      "enemies_json",
+      "created_at"
+    ],
+    "game_campaign_runs": [
+      "character_id",
+      "revision",
+      "state_json"
+    ],
+    "game_duels": [
+      "id",
+      "challenger",
+      "target",
+      "state",
+      "expires_at",
+      "seed",
+      "result_json",
+      "created_at"
+    ],
+    "game_economy": [
+      "character_id",
+      "settled_at",
+      "remainder",
+      "hourly_rate",
+      "tax_day",
+      "tax_used"
+    ],
+    "game_facts": [
+      "character_id",
+      "kind",
+      "subject",
+      "amount"
+    ],
+    "game_guild_applications": [
+      "guild_id",
+      "character_id",
+      "created_at"
+    ],
+    "game_guild_members": [
+      "character_id",
+      "guild_id",
+      "rank",
+      "contribution",
+      "joined_at"
+    ],
+    "game_guilds": [
+      "id",
+      "name",
+      "name_key",
+      "leader_id",
+      "creator_id",
+      "level",
+      "bank",
+      "description",
+      "created_at"
+    ],
+    "game_items": [
+      "id",
+      "character_id",
+      "template_id",
+      "bag",
+      "position",
+      "count",
+      "bound"
+    ],
+    "game_pawn_audit": [
+      "id",
+      "character_id",
+      "operation",
+      "payload_json",
+      "created_at"
+    ],
+    "game_pawn_slots": [
+      "character_id",
+      "slot",
+      "son_type",
+      "count"
+    ],
+    "game_pawns": [
+      "character_id",
+      "son_type",
+      "template_id",
+      "reserve"
+    ],
+    "game_progress": [
+      "character_id",
+      "xp",
+      "pending_xp",
+      "origin",
+      "revision"
+    ],
+    "game_quests": [
+      "character_id",
+      "quest_id",
+      "status",
+      "accepted_at",
+      "claimed_at",
+      "claims",
+      "period",
+      "baseline_json"
+    ],
+    "game_resources": [
+      "character_id",
+      "currency",
+      "amount"
+    ],
+    "game_reward_events": [
+      "character_id",
+      "event_id",
+      "payload_json",
+      "created_at"
+    ],
+    "game_skill_preferences": [
+      "character_id",
+      "enabled",
+      "percent",
+      "normal_skill",
+      "special_skill"
+    ],
+    "game_skills": [
+      "character_id",
+      "learned_json",
+      "fast_keys",
+      "spent"
+    ],
+    "game_wallet_log": [
+      "id",
+      "character_id",
+      "currency",
+      "delta",
+      "before_amount",
+      "after_amount",
+      "reason",
+      "created_at"
+    ],
+    "game_world": [
+      "character_id",
+      "map_id",
+      "x",
+      "y",
+      "moved_at",
+      "move_revision"
+    ],
+    "sessions": [
+      "token_hash",
+      "account_id",
+      "expires_at"
+    ],
+    "wartune_roles": [
+      "character_id",
+      "sex",
+      "icon",
+      "camp",
+      "site"
+    ],
+    "wartune_tickets": [
+      "account_id",
+      "md5_key_hash",
+      "session_token_hash",
+      "site",
+      "expires_at"
+    ],
+    "wartune_training": [
+      "character_id",
+      "revision",
+      "state_json",
+      "updated_at"
+    ],
+    "wartune_training_events": [
+      "id",
+      "character_id",
+      "revision",
+      "kind",
+      "state_json",
+      "created_at"
+    ],
+    "wartune_training_results": [
+      "battle_id",
+      "character_id",
+      "node_id",
+      "won",
+      "player_hp",
+      "enemy_hp_json",
+      "created_at"
+    ],
+    "game_notifications": [
+      "id",
+      "character_id",
+      "event_key",
+      "kind",
+      "message",
+      "payload_json",
+      "created_at"
+    ],
+    "game_mail": [
+      "id",
+      "character_id",
+      "sender_id",
+      "subject",
+      "body",
+      "reward_json",
+      "created_at",
+      "read_at",
+      "claimed_at",
+      "deleted",
+      "event_key"
+    ],
+    "game_shop_purchases": [
+      "id",
+      "character_id",
+      "shop_id",
+      "count",
+      "created_at"
+    ],
+    "game_daily": [
+      "character_id",
+      "last_day",
+      "total_days",
+      "reward_bits"
+    ],
+    "game_guild_meta": [
+      "guild_id",
+      "placard",
+      "open_app"
+    ],
+    "game_guild_invites": [
+      "id",
+      "guild_id",
+      "character_id",
+      "inviter_id",
+      "created_at"
+    ],
+    "game_chat": [
+      "id",
+      "character_id",
+      "channel",
+      "recipient_id",
+      "scope",
+      "message",
+      "created_at"
+    ],
+    "game_guild_upgrades": [
+      "guild_id",
+      "target_level",
+      "finishes_at"
+    ],
+    "game_migrations": [
+      "name",
+      "created_at"
+    ],
+    "game_resource_ledger": [
+      "id",
+      "character_id",
+      "currency",
+      "delta",
+      "before_amount",
+      "after_amount",
+      "reason",
+      "created_at"
+    ],
+    "game_campaign_sweeps": [
+      "id",
+      "character_id",
+      "campaign_id",
+      "state_json",
+      "created_at"
+    ],
+    "game_vip": [
+      "character_id",
+      "xp",
+      "imported"
+    ],
+    "game_vip_events": [
+      "character_id",
+      "event_id",
+      "amount",
+      "created_at"
+    ],
+    "game_vip_claims": [
+      "character_id",
+      "grade",
+      "type",
+      "period",
+      "created_at"
+    ],
+    "game_item_enhancements": [
+      "item_id",
+      "character_id",
+      "grade"
+    ],
+    "game_forge_stage": [
+      "character_id",
+      "slot",
+      "item_id"
+    ],
+    "game_item_buffs": [
+      "character_id",
+      "kind",
+      "percent",
+      "expires_at"
+    ],
+    "game_forge_actions": [
+      "character_id",
+      "token",
+      "item_id",
+      "from_grade",
+      "result_json"
+    ],
+    "game_item_gems": [
+      "item_id",
+      "character_id",
+      "slot",
+      "gem_template_id",
+      "bound"
+    ],
+    "game_mounts": [
+      "character_id",
+      "template_id",
+      "activated_at",
+      "expires_at",
+      "template_json"
+    ],
+    "game_runes": [
+      "character_id",
+      "rune_type",
+      "template_id"
+    ],
+    "game_item_use_actions": [
+      "character_id",
+      "token",
+      "item_id",
+      "template_id",
+      "bag",
+      "pos",
+      "count",
+      "result_json"
+    ],
+    "game_mount_state": [
+      "character_id",
+      "template_id",
+      "mounted"
+    ],
+    "game_gift_purchases": [
+      "character_id",
+      "package_id",
+      "period",
+      "count"
+    ],
+    "game_fashion_state": [
+      "character_id",
+      "status"
+    ]
+  }
+}

@@ -1,0 +1,889 @@
+{
+  "version": 1,
+  "method": "per-frame rider translation; mount pixels, floor anchor and original layout unchanged",
+  "landmarks_cat_w0": [
+    [
+      25,
+      100
+    ],
+    [
+      83,
+      44
+    ],
+    [
+      126,
+      47
+    ],
+    [
+      99,
+      60
+    ],
+    [
+      24,
+      123
+    ]
+  ],
+  "landmarks_horse_w0": [
+    [
+      25,
+      25
+    ],
+    [
+      78,
+      32
+    ],
+    [
+      123,
+      33
+    ],
+    [
+      86,
+      65
+    ],
+    [
+      24,
+      74
+    ]
+  ],
+  "landmarks_horse_s0": [
+    [
+      61,
+      30
+    ],
+    [
+      98,
+      49
+    ],
+    [
+      77,
+      70
+    ]
+  ],
+  "frames": [
+    {
+      "frame": "S_0_0.png",
+      "saddle_cat": [
+        72.0,
+        39.985
+      ],
+      "saddle_reference": [
+        61.0,
+        30.0
+      ],
+      "rider_offset": {
+        "x": 11,
+        "y": 10
+      }
+    },
+    {
+      "frame": "S_0_1.png",
+      "saddle_cat": [
+        109.366,
+        51.615
+      ],
+      "saddle_reference": [
+        98.0,
+        49.0
+      ],
+      "rider_offset": {
+        "x": 11,
+        "y": 3
+      }
+    },
+    {
+      "frame": "S_0_2.png",
+      "saddle_cat": [
+        85.268,
+        89.857
+      ],
+      "saddle_reference": [
+        77.0,
+        70.0
+      ],
+      "rider_offset": {
+        "x": 8,
+        "y": 20
+      }
+    },
+    {
+      "frame": "S_1_0.png",
+      "saddle_cat": [
+        70.0,
+        39.985
+      ],
+      "saddle_reference": [
+        58.741,
+        30.0
+      ],
+      "rider_offset": {
+        "x": 11,
+        "y": 10
+      }
+    },
+    {
+      "frame": "S_1_1.png",
+      "saddle_cat": [
+        107.366,
+        51.615
+      ],
+      "saddle_reference": [
+        95.926,
+        49.0
+      ],
+      "rider_offset": {
+        "x": 11,
+        "y": 3
+      }
+    },
+    {
+      "frame": "S_1_2.png",
+      "saddle_cat": [
+        84.643,
+        91.5
+      ],
+      "saddle_reference": [
+        76.438,
+        70.398
+      ],
+      "rider_offset": {
+        "x": 8,
+        "y": 21
+      }
+    },
+    {
+      "frame": "S_2_0.png",
+      "saddle_cat": [
+        66.841,
+        42.75
+      ],
+      "saddle_reference": [
+        56.03,
+        30.0
+      ],
+      "rider_offset": {
+        "x": 11,
+        "y": 13
+      }
+    },
+    {
+      "frame": "S_2_1.png",
+      "saddle_cat": [
+        102.854,
+        55.077
+      ],
+      "saddle_reference": [
+        91.259,
+        49.374
+      ],
+      "rider_offset": {
+        "x": 12,
+        "y": 6
+      }
+    },
+    {
+      "frame": "S_2_2.png",
+      "saddle_cat": [
+        82.771,
+        93.429
+      ],
+      "saddle_reference": [
+        74.752,
+        70.398
+      ],
+      "rider_offset": {
+        "x": 8,
+        "y": 23
+      }
+    },
+    {
+      "frame": "S_3_0.png",
+      "saddle_cat": [
+        67.381,
+        42.059
+      ],
+      "saddle_reference": [
+        56.481,
+        30.0
+      ],
+      "rider_offset": {
+        "x": 11,
+        "y": 12
+      }
+    },
+    {
+      "frame": "S_3_1.png",
+      "saddle_cat": [
+        102.854,
+        55.077
+      ],
+      "saddle_reference": [
+        91.259,
+        49.374
+      ],
+      "rider_offset": {
+        "x": 12,
+        "y": 6
+      }
+    },
+    {
+      "frame": "S_3_2.png",
+      "saddle_cat": [
+        80.274,
+        96.0
+      ],
+      "saddle_reference": [
+        72.504,
+        70.398
+      ],
+      "rider_offset": {
+        "x": 8,
+        "y": 26
+      }
+    },
+    {
+      "frame": "S_4_0.png",
+      "saddle_cat": [
+        68.46,
+        40.676
+      ],
+      "saddle_reference": [
+        57.385,
+        30.0
+      ],
+      "rider_offset": {
+        "x": 11,
+        "y": 11
+      }
+    },
+    {
+      "frame": "S_4_1.png",
+      "saddle_cat": [
+        103.439,
+        53.462
+      ],
+      "saddle_reference": [
+        91.778,
+        49.0
+      ],
+      "rider_offset": {
+        "x": 12,
+        "y": 4
+      }
+    },
+    {
+      "frame": "S_4_2.png",
+      "saddle_cat": [
+        80.898,
+        94.357
+      ],
+      "saddle_reference": [
+        73.066,
+        70.0
+      ],
+      "rider_offset": {
+        "x": 8,
+        "y": 24
+      }
+    },
+    {
+      "frame": "W_0_0.png",
+      "saddle_cat": [
+        25.0,
+        100.0
+      ],
+      "saddle_reference": [
+        25.0,
+        25.0
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 75
+      }
+    },
+    {
+      "frame": "W_0_1.png",
+      "saddle_cat": [
+        83.0,
+        44.0
+      ],
+      "saddle_reference": [
+        78.0,
+        32.0
+      ],
+      "rider_offset": {
+        "x": 5,
+        "y": 12
+      }
+    },
+    {
+      "frame": "W_0_2.png",
+      "saddle_cat": [
+        126.0,
+        47.0
+      ],
+      "saddle_reference": [
+        123.0,
+        33.0
+      ],
+      "rider_offset": {
+        "x": 3,
+        "y": 14
+      }
+    },
+    {
+      "frame": "W_0_3.png",
+      "saddle_cat": [
+        99.0,
+        60.0
+      ],
+      "saddle_reference": [
+        86.0,
+        65.0
+      ],
+      "rider_offset": {
+        "x": 13,
+        "y": -5
+      }
+    },
+    {
+      "frame": "W_0_4.png",
+      "saddle_cat": [
+        24.0,
+        123.0
+      ],
+      "saddle_reference": [
+        24.0,
+        74.0
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 49
+      }
+    },
+    {
+      "frame": "W_1_0.png",
+      "saddle_cat": [
+        24.5,
+        109.565
+      ],
+      "saddle_reference": [
+        24.5,
+        26.101
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 83
+      }
+    },
+    {
+      "frame": "W_1_1.png",
+      "saddle_cat": [
+        84.714,
+        45.544
+      ],
+      "saddle_reference": [
+        78.497,
+        33.159
+      ],
+      "rider_offset": {
+        "x": 6,
+        "y": 12
+      }
+    },
+    {
+      "frame": "W_1_2.png",
+      "saddle_cat": [
+        125.659,
+        47.385
+      ],
+      "saddle_reference": [
+        122.453,
+        33.277
+      ],
+      "rider_offset": {
+        "x": 3,
+        "y": 14
+      }
+    },
+    {
+      "frame": "W_1_3.png",
+      "saddle_cat": [
+        97.752,
+        62.929
+      ],
+      "saddle_reference": [
+        84.918,
+        65.409
+      ],
+      "rider_offset": {
+        "x": 13,
+        "y": -2
+      }
+    },
+    {
+      "frame": "W_1_4.png",
+      "saddle_cat": [
+        24.511,
+        119.788
+      ],
+      "saddle_reference": [
+        24.511,
+        73.191
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 47
+      }
+    },
+    {
+      "frame": "W_2_0.png",
+      "saddle_cat": [
+        24.5,
+        105.641
+      ],
+      "saddle_reference": [
+        24.5,
+        25.786
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 80
+      }
+    },
+    {
+      "frame": "W_2_1.png",
+      "saddle_cat": [
+        83.714,
+        44.0
+      ],
+      "saddle_reference": [
+        78.0,
+        32.0
+      ],
+      "rider_offset": {
+        "x": 6,
+        "y": 12
+      }
+    },
+    {
+      "frame": "W_2_2.png",
+      "saddle_cat": [
+        127.268,
+        47.0
+      ],
+      "saddle_reference": [
+        123.0,
+        33.0
+      ],
+      "rider_offset": {
+        "x": 4,
+        "y": 14
+      }
+    },
+    {
+      "frame": "W_2_3.png",
+      "saddle_cat": [
+        98.006,
+        56.286
+      ],
+      "saddle_reference": [
+        86.0,
+        62.956
+      ],
+      "rider_offset": {
+        "x": 12,
+        "y": -7
+      }
+    },
+    {
+      "frame": "W_2_4.png",
+      "saddle_cat": [
+        24.511,
+        113.576
+      ],
+      "saddle_reference": [
+        24.511,
+        71.169
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 42
+      }
+    },
+    {
+      "frame": "W_3_0.png",
+      "saddle_cat": [
+        25.0,
+        82.283
+      ],
+      "saddle_reference": [
+        25.0,
+        22.013
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 60
+      }
+    },
+    {
+      "frame": "W_3_1.png",
+      "saddle_cat": [
+        85.381,
+        39.059
+      ],
+      "saddle_reference": [
+        80.484,
+        28.29
+      ],
+      "rider_offset": {
+        "x": 5,
+        "y": 11
+      }
+    },
+    {
+      "frame": "W_3_2.png",
+      "saddle_cat": [
+        127.463,
+        42.385
+      ],
+      "saddle_reference": [
+        125.733,
+        29.672
+      ],
+      "rider_offset": {
+        "x": 2,
+        "y": 13
+      }
+    },
+    {
+      "frame": "W_3_3.png",
+      "saddle_cat": [
+        98.631,
+        55.214
+      ],
+      "saddle_reference": [
+        86.541,
+        61.73
+      ],
+      "rider_offset": {
+        "x": 12,
+        "y": -7
+      }
+    },
+    {
+      "frame": "W_3_4.png",
+      "saddle_cat": [
+        24.0,
+        106.182
+      ],
+      "saddle_reference": [
+        24.0,
+        67.934
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 38
+      }
+    },
+    {
+      "frame": "W_4_0.png",
+      "saddle_cat": [
+        25.0,
+        72.0
+      ],
+      "saddle_reference": [
+        25.0,
+        20.597
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 51
+      }
+    },
+    {
+      "frame": "W_4_1.png",
+      "saddle_cat": [
+        89.667,
+        36.897
+      ],
+      "saddle_reference": [
+        85.452,
+        26.667
+      ],
+      "rider_offset": {
+        "x": 4,
+        "y": 10
+      }
+    },
+    {
+      "frame": "W_4_2.png",
+      "saddle_cat": [
+        129.707,
+        41.231
+      ],
+      "saddle_reference": [
+        128.467,
+        28.84
+      ],
+      "rider_offset": {
+        "x": 1,
+        "y": 12
+      }
+    },
+    {
+      "frame": "W_4_3.png",
+      "saddle_cat": [
+        95.268,
+        49.143
+      ],
+      "saddle_reference": [
+        84.918,
+        54.78
+      ],
+      "rider_offset": {
+        "x": 10,
+        "y": -6
+      }
+    },
+    {
+      "frame": "W_4_4.png",
+      "saddle_cat": [
+        24.511,
+        86.788
+      ],
+      "saddle_reference": [
+        24.511,
+        59.847
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 27
+      }
+    },
+    {
+      "frame": "W_5_0.png",
+      "saddle_cat": [
+        24.5,
+        83.565
+      ],
+      "saddle_reference": [
+        24.5,
+        22.013
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 62
+      }
+    },
+    {
+      "frame": "W_5_1.png",
+      "saddle_cat": [
+        88.222,
+        38.132
+      ],
+      "saddle_reference": [
+        83.465,
+        27.594
+      ],
+      "rider_offset": {
+        "x": 5,
+        "y": 11
+      }
+    },
+    {
+      "frame": "W_5_2.png",
+      "saddle_cat": [
+        128.707,
+        42.769
+      ],
+      "saddle_reference": [
+        127.92,
+        29.95
+      ],
+      "rider_offset": {
+        "x": 1,
+        "y": 13
+      }
+    },
+    {
+      "frame": "W_5_3.png",
+      "saddle_cat": [
+        96.771,
+        47.714
+      ],
+      "saddle_reference": [
+        87.082,
+        53.145
+      ],
+      "rider_offset": {
+        "x": 10,
+        "y": -5
+      }
+    },
+    {
+      "frame": "W_5_4.png",
+      "saddle_cat": [
+        24.0,
+        91.0
+      ],
+      "saddle_reference": [
+        24.0,
+        61.06
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 30
+      }
+    },
+    {
+      "frame": "W_6_0.png",
+      "saddle_cat": [
+        24.5,
+        87.641
+      ],
+      "saddle_reference": [
+        24.5,
+        22.956
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 65
+      }
+    },
+    {
+      "frame": "W_6_1.png",
+      "saddle_cat": [
+        86.159,
+        39.676
+      ],
+      "saddle_reference": [
+        80.981,
+        28.754
+      ],
+      "rider_offset": {
+        "x": 5,
+        "y": 11
+      }
+    },
+    {
+      "frame": "W_6_2.png",
+      "saddle_cat": [
+        129.829,
+        44.308
+      ],
+      "saddle_reference": [
+        126.827,
+        31.059
+      ],
+      "rider_offset": {
+        "x": 3,
+        "y": 13
+      }
+    },
+    {
+      "frame": "W_6_3.png",
+      "saddle_cat": [
+        97.892,
+        51.286
+      ],
+      "saddle_reference": [
+        88.164,
+        57.233
+      ],
+      "rider_offset": {
+        "x": 10,
+        "y": -6
+      }
+    },
+    {
+      "frame": "W_6_4.png",
+      "saddle_cat": [
+        24.0,
+        98.788
+      ],
+      "saddle_reference": [
+        24.0,
+        64.699
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 34
+      }
+    },
+    {
+      "frame": "W_7_0.png",
+      "saddle_cat": [
+        24.5,
+        98.565
+      ],
+      "saddle_reference": [
+        24.5,
+        24.371
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 74
+      }
+    },
+    {
+      "frame": "W_7_1.png",
+      "saddle_cat": [
+        84.857,
+        42.765
+      ],
+      "saddle_reference": [
+        79.49,
+        31.072
+      ],
+      "rider_offset": {
+        "x": 5,
+        "y": 12
+      }
+    },
+    {
+      "frame": "W_7_2.png",
+      "saddle_cat": [
+        127.829,
+        46.615
+      ],
+      "saddle_reference": [
+        125.187,
+        32.723
+      ],
+      "rider_offset": {
+        "x": 3,
+        "y": 14
+      }
+    },
+    {
+      "frame": "W_7_3.png",
+      "saddle_cat": [
+        98.879,
+        55.929
+      ],
+      "saddle_reference": [
+        87.082,
+        62.547
+      ],
+      "rider_offset": {
+        "x": 12,
+        "y": -7
+      }
+    },
+    {
+      "frame": "W_7_4.png",
+      "saddle_cat": [
+        24.511,
+        112.97
+      ],
+      "saddle_reference": [
+        24.511,
+        71.169
+      ],
+      "rider_offset": {
+        "x": 0,
+        "y": 42
+      }
+    }
+  ]
+}

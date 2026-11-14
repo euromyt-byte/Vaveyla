@@ -1,0 +1,2 @@
+// Exact methods from the supplied bundle, SHA256 626ae588f67ce321855040a9e034191ccb802a20bbe295fceae02ab3dcfe95ac.
+globalThis.SourceExitOut=class{sendReturnCampaignRoom(t,e=!1){y_t.info("[CampaignSocketOutManager]sendReturnCampaignRoom 退出战役房间 armyId",t);var i=new fl;i.msg=e?"kill self":"",vZ.Instance.send(Bn.U_C_CAMPAIGN_ROOM_EXIT,i)}sendExitCampaignScene(t){var e=new fl;e.msg="",vZ.Instance.send(Bn.U_C_CAMPAIGN_EXIT,e)}};

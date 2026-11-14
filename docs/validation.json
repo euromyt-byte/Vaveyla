@@ -1,0 +1,188 @@
+{
+  "version": "1.5.0",
+  "engine": "nodejs",
+  "baseline": "VAVEYLA Python 0.14.7",
+  "node_version": "24.19.0",
+  "python_runtime_required": false,
+  "automated_tests": {
+    "tests": 72,
+    "passed": 72,
+    "failed": 0,
+    "skipped": 0,
+    "command": "npm test"
+  },
+  "protocol": {
+    "protobuf_schemas": 141,
+    "rolling_packet_vectors": 20,
+    "selected_schemas": 249,
+    "original_generated_encoder_matches": 249
+  },
+  "game_reference_snapshots": {
+    "count": 18,
+    "scope": "unchanged legacy fields; audited new quest conditions tested independently"
+  },
+  "random_reference_draws": 720,
+  "tutorial": {
+    "avatars": 6,
+    "battles_per_avatar": 5,
+    "base_hp": 300,
+    "dinah_heal_verified": true
+  },
+  "normal_campaigns": {
+    "campaigns": 45,
+    "maps": 91,
+    "distinct_enemy_formations": 293,
+    "victory_records": 303,
+    "includes_all_three_1307_routes": true,
+    "fixture_player_level": 80,
+    "fixture_pawn_level": 80,
+    "fixture_stamina": 5000,
+    "raid_completions_after_genuine_clear": 45
+  },
+  "migration": {
+    "existing_schema_and_passwords": true,
+    "diamond_balance_and_ledger": true,
+    "action_replay_reference": true,
+    "online_wal_copy": true,
+    "source_main_file_unchanged": true,
+    "overwrite_refused": true
+  },
+  "browser": {
+    "character_screen": true,
+    "character_created": true,
+    "world_scene_entered": false,
+    "world_blockers": "Incomplete cloud client: map10001/Debug/sound files missing; displayObject TypeError",
+    "android_device_test": "not_run",
+    "tested_version": "1.0.0"
+  },
+  "asset_audit": {
+    "groups": 336,
+    "coverage": "required maps, formations, backgrounds and shared BattleResult UI; file presence only"
+  },
+  "official_formula_verified": false,
+  "full_original_backend_verified": false,
+  "python_source_backup_comparison": {
+    "unchanged_files": 295,
+    "changed_files": 0
+  },
+  "notification_checks": [
+    "reward_and_level_journal",
+    "rollback_and_reward_replay",
+    "source_system_channel_2",
+    "owned_history_pagination",
+    "source_quest958_item115",
+    "live_encrypted_ws_xp_gold_item_and_tip",
+    "encounter_map_hp_and_skill_keys_preserved"
+  ],
+  "services": {
+    "mail": true,
+    "source_shop": true,
+    "source_seven_day_rewards": true,
+    "currency_and_xp_consumables": true,
+    "basic_guild_management": true,
+    "private_and_guild_chat_encrypted": true,
+    "virtual_reward_currencies": true,
+    "legacy_resource_migration": true,
+    "source_stamina_numbers": [
+      200,
+      20,
+      5000
+    ],
+    "npc_dialogue_policy": "accepted source town quest claim; no active campaign"
+  },
+  "campaign_city": {
+    "original_client_actions_and_models": true,
+    "level5_after_actual_tutorial_and_quest45_encrypted_challenge": true,
+    "empty_rank_unlock_initial_campaign": true,
+    "raid_time_poll_restart_idempotency": true,
+    "cancel_refunds_unfinished_repetitions_once": true,
+    "raid_modes": "normal_solo_only",
+    "construction_and_research_independent": true,
+    "original_order_start_and_speedup_responses": [
+      151,
+      102
+    ],
+    "source_prerequisites_and_funds": true,
+    "missing_config_local_raid_defaults": {
+      "seconds": 60,
+      "gold": 100
+    },
+    "raid_random_drops_verified": false,
+    "android_all_buttons_tested": false
+  },
+  "system_open": {
+    "source_rows": 93,
+    "packet": 537,
+    "inventory_level": 5,
+    "skills_level": 6,
+    "sylph_level": 40,
+    "sylph_backend_implemented": false,
+    "unsupported_entries_not_advertised": true
+  },
+  "quest_chat_sync": {
+    "source_handler_bits_before_successor_conditions": true,
+    "claimed_nonrepeat_task_cleanup": true,
+    "repeated_tasks_preserved": true,
+    "authenticated_tutorial45_recovery": "local_policy_standard_claim_checks",
+    "system_history_replay_limit": 20,
+    "android_device_test": "not_run"
+  },
+  "free_recharge": {
+    "catalog_packages": 12,
+    "authentication_and_owner_only": true,
+    "amount_from_source": true,
+    "active_click_deduplication": true,
+    "retry_request_id_reused": true,
+    "repeat_request_no_extra_reward": true,
+    "real_payment": false,
+    "vip_payment_status_granted": false,
+    "android_device_test": "not_run",
+    "vip_xp_from_source": true
+  },
+  "pawn_wire_fix": {
+    "default_empty_repeated_field_accepted": true,
+    "source_recruit_and_deploy_payloads": true,
+    "gold_reserve_population_ownership_checks_retained": true,
+    "forged_and_excess_requests_rejected": true,
+    "achievement_8780_implemented": false
+  },
+  "raid_item_policy": {
+    "policy": "one_source_preview_item_per_completed_repeat_round_robin",
+    "official_drop_rates_verified": false,
+    "start_preview_and_earned_response": true,
+    "restart_replay_and_overflow_mail": true,
+    "retroactive_finished_run_grants": false
+  },
+  "loading_stall_fixed": false,
+  "asset_failure_diagnostics": {
+    "bounded_paths": 128,
+    "private_paths_excluded": true
+  },
+  "vip": {
+    "source_vip_ex": true,
+    "virtual_reward_code": -5500,
+    "thresholds_source_type": 4,
+    "max_source_level": 19,
+    "legacy_purchase_backfill_once": true,
+    "diamonds_unchanged_by_backfill": true,
+    "sqlite_restart": true,
+    "gifts_source_types": [
+      -1,
+      0,
+      1
+    ],
+    "daily_reset_policy": "UTC",
+    "paid_gift_exact_cost": true,
+    "source_cooldown_privileges": [
+      29,
+      30
+    ],
+    "native_wire_balance_and_gift": true,
+    "early_vip_packet_deferred_until_hero": true,
+    "overflow_atomic": true,
+    "all_vip_privileges_implemented": false,
+    "roulette_and_timed_cards": false,
+    "android_device_test": "not_run",
+    "packed_config_free_price_getter": true
+  }
+}

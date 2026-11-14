@@ -1,0 +1,433 @@
+{
+  "prepared_sha256": "80cba591cf5530bfaf5a8fce5810b373be8c0eae72c207441493c0a198908198",
+  "relative": "js/bundle_release-ad60bfe795.js",
+  "patches": [
+    [
+      "cN.Instance.checkEnterCastle()?s6.Instance.setScene(sa.CASTLE_SCENE):this.gotoMainGameNovieScene();break;case EH.OUTERCITY_SCENE:",
+      "/* VAVEYLA_GAME_CITY_V1 */(cN.Instance.checkEnterCastle()||n0.Instance.thane.grades>=15)?s6.Instance.setScene(sa.CASTLE_SCENE):this.gotoMainGameNovieScene();break;case EH.OUTERCITY_SCENE:"
+    ],
+    [
+      "else this._resultView.setData(this._resultViewData),this._resultView.Show(this.battleModel.battleType);Laya.timer.once(2e3,this,this.resultViewCloseFun)",
+      "else this._resultView.setData(this._resultViewData),this._resultView.Show(this.battleModel.battleType);Laya.timer.once(2e3,this,this.resultViewCloseFun)"
+    ],
+    [
+      "__loginStateHandler(t){let e=t.readBody(nF),i=(e.playerId,e.state);",
+      "__loginStateHandler(t){let e=t.readBody(nF),i=(e.playerId,e.state);"
+    ],
+    [
+      "__exitCampaignSceneHandler(t){let e=t.readBody(OG);",
+      "__exitCampaignSceneHandler(t){let e=t.readBody(OG);"
+    ],
+    [
+      "dealCampaignData(){this._campaignId=this.model.campaignId,this._campaignTemp=I_t.Instance.getTemplateByID(u_t.t_s_campaign,this._campaignId),this._campaignTemp&&(this.txtFrameTitle.text=this._campaignTemp.CampaignNameLang),this._costTime=Number(mJ.Instance.getConfigInfoByConfigName(\"Campaign_Sweep_Time\").ConfigValue),this._costGold=Number(mJ.Instance.getConfigInfoByConfigName(\"Campaign_Sweep_Gold\").ConfigValue),",
+      "dealCampaignData(){this._campaignId=this.model.campaignId,this._campaignTemp=I_t.Instance.getTemplateByID(u_t.t_s_campaign,this._campaignId),this._campaignTemp&&(this.txtFrameTitle.text=this._campaignTemp.CampaignNameLang),this._costTime=0,this._costGold=Number((mJ.Instance.getConfigInfoByConfigName(\"Campaign_Sweep_Gold\")||{ConfigValue:100}).ConfigValue),"
+    ],
+    [
+      "__questUpdateHandler(t){var e=new Array;let i=t.readBody(kB);for(",
+      "__questUpdateHandler(t){var e=new Array;let i=t.readBody(kB);/* VAVEYLA_QUEST_STATES_FIRST */this._taskLog.clear();this._taskLog.writeArrayBuffer(i.states);this._cate.beginChanges();for(const q of this._cate.acceptedList.slice()){if(!q.IsRepeat&&this.IsTaskFinish(q.TemplateId)){q.removeEvent();this._cate.removeTask(q)}}this._cate.commit();for("
+    ],
+    [
+      "}recharge(t=\"\",e=1,i=0,s=0){",
+      "}recharge(t=\"\",e=1,i=0,s=0){/* VAVEYLA_FREE_RECHARGE */return window.VAVEYLA_FREE_RECHARGE(t,e,i,s).then(()=>{vZ.Instance.send(5016);vZ.Instance.send(5015);let flags=new com.road.yishi.proto.player.PlayerDataMsg;flags.bag=true;flags.army=true;flags.quest=true;vZ.Instance.send(8224,flags);let q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraInt1=0;q.paraString1=\"VAVEYLA_SHOP_GIFT_V1\";vZ.Instance.send(9061,q)},err=>a6.Instance.show(err.message));"
+    ],
+    [
+      "getMoneyString(){return Ma()?\"$\":\"+\"}",
+      "getMoneyString(){return \"\"}"
+    ],
+    [
+      "getMoneyString2(){return Ma()?\"$\":\"¥\"}",
+      "getMoneyString2(){return \"\"}"
+    ],
+    [
+      "_vipInfoHandler(t){let e=t.readBody(Md),i=new bd;",
+      "_vipInfoHandler(t){let e=t.readBody(Md);/* VAVEYLA_VIP_WAIT_HERO */let ready=false;try{ready=!!n0.Instance.thane}catch(_){}if(!ready){Laya.timer.once(100,this,()=>this._vipInfoHandler({readBody:()=>e}));return}let i=new bd;"
+    ],
+    [
+      "getRechargeTempleteByProductID(t=\"\"){return I_t.Instance.getTemplateByID(u_t.t_s_recharge,t)}",
+      "getRechargeTempleteByProductID(t=\"\"){const p=I_t.Instance.getTemplateByID(u_t.t_s_recharge,t);return p&&p.ProductType===1?Object.assign(Object.create(Object.getPrototypeOf(p)),p,{MoneyNum:\"0\",MoneyType:\"\"}):p}"
+    ],
+    [
+      "__campaignResultHandler(t){",
+      "__campaignResultHandler(t){/* VAVEYLA_REWARD_BRIDGE_V1 */const savedPosition=t.position;let envelope=null;try{envelope=t.readBody(jH)}catch(ignore){}finally{t.position=savedPosition}if(envelope&&typeof envelope.paraString1===\"string\"&&envelope.paraString1.startsWith(\"VAVEYLA_REWARD_V1:\")){const value=JSON.parse(envelope.paraString1.slice(18));window.VAVEYLA_PENDING_REWARD={token:value.token,claimed:false};const forwarded=Object.create(t);forwarded.readBody=()=>value;t=forwarded;}"
+    ],
+    [
+      "__campaingTakeCardHandler(t){",
+      "__campaingTakeCardHandler(t){/* VAVEYLA_REWARD_BRIDGE_V1 */const savedPosition=t.position;let envelope=null;try{envelope=t.readBody(jH)}catch(ignore){}finally{t.position=savedPosition}if(envelope&&typeof envelope.paraString1===\"string\"&&envelope.paraString1.startsWith(\"VAVEYLA_REWARD_V1:\")){const value=JSON.parse(envelope.paraString1.slice(18));const pending=window.VAVEYLA_PENDING_REWARD;if(pending&&pending.token!==value.token)return;if(pending)pending.claimed=true;const forwarded=Object.create(t);forwarded.readBody=()=>value;t=forwarded;}"
+    ],
+    [
+      "sendCampaignCard(t,e,i){var s=new gl;",
+      "sendCampaignCard(t,e,i){var s=new gl;s.paraString1=window.VAVEYLA_PENDING_REWARD?window.VAVEYLA_PENDING_REWARD.token:\"\";"
+    ],
+    [
+      "leaveCampaign(){let t=s6.Instance.currentType;",
+      "leaveCampaign(){if(window.VAVEYLA_PENDING_REWARD&&!window.VAVEYLA_PENDING_REWARD.claimed){a6.Instance.show(\"Önce savaş ödülünü seçmelisin.\");return}let t=s6.Instance.currentType;"
+    ],
+    [
+      "if(b6.CampaignOverState)return s6.Instance.currentType==sa.CAMPAIGN_MAP_SCENE&&Wk.returnToSpace(),",
+      "if(window.VAVEYLA_PENDING_REWARD&&!window.VAVEYLA_PENDING_REWARD.claimed){a6.Instance.show(\"Önce savaş ödülünü seçmelisin.\");return}if(b6.CampaignOverState)return s6.Instance.currentType==sa.CAMPAIGN_MAP_SCENE&&Wk.returnToSpace(),"
+    ],
+    [
+      "setPage(t=!1){this.model.isMopup=t,this.gMopuping.visible=t,this.gMopupPre.visible=!t,this.frameData.type==oy.CampaignMopup?this.frameData.state=t?ry.CampaignMopuping:ry.CampaignMopupPre:this.frameData.type==oy.PetCampaignMopup?this.frameData.state=t?ry.PetCampaignMopupping:ry.PetCampaignMopupPre:this.frameData.state=t?ry.MazeMopuping:ry.MazeMopupPre,t&&(this.speedImmediately(),this.__refreshMopupingList())}",
+      "setPage(t=!1){this.model.isMopup=t,this.gMopuping.visible=t,this.gMopupPre.visible=!t,this.frameData.type==oy.CampaignMopup?this.frameData.state=t?ry.CampaignMopuping:ry.CampaignMopupPre:this.frameData.type==oy.PetCampaignMopup?this.frameData.state=t?ry.PetCampaignMopupping:ry.PetCampaignMopupPre:this.frameData.state=t?ry.MazeMopuping:ry.MazeMopupPre,t&&(this.speedImmediately(),this.__refreshMopupingList());/* VAVEYLA_MOPUP_PROGRESS_V1 */if(this.frameData.type===oy.CampaignMopup){if(this._vaveylaSweepPoll)Laya.timer.clear(this,this._vaveylaSweepPoll);this.btnStop.enabled=true;this.btnStop.title=this.model.mopupEnd?\"Onayla\":\"Kapat\";if(!t)this._vaveylaCompletedRows=new Set;if(t&&!this.model.mopupEnd){this._vaveylaSweepPoll=this._vaveylaSweepPoll||(()=>{if(this.destroyed||!this.isShowing||!this.isMopuping||this.model.mopupEnd){Laya.timer.clear(this,this._vaveylaSweepPoll);return}this._remainTimeCnt=Math.max(0,(this._remainTimeCnt||0)-1);this.txtLeftTime.text=ho.getConsortiaCountDate(this._remainTimeCnt);const now=Date.now();if(this._vaveylaPollWaiting&&now-this._vaveylaPollSentAt<5000)return;this._vaveylaPollWaiting=true;this._vaveylaPollSentAt=now;try{this.speedImmediately()}catch(error){this._vaveylaPollWaiting=false;this.txtLeftTime.text=\"Bağlantı bekleniyor...\"}});Laya.timer.loop(1000,this,this._vaveylaSweepPoll)}}}"
+    ],
+    [
+      "__refreshMopupingList(){if(!this.isShowing||!this.isMopuping||this.destroyed||!this.list||this.list.isDisposed)return;let t=this.model.resultInfoList;if(!t||t.length<=0)return void this.addTipItem();let e=!1;for(let i=0;i<t.length;i++){const s=t[i];let n=this.list.addItemFromPool();n.info=s,n.itemType=2==s.type?ly.Mopuping:ly.Mopuped,y_t.xjy(\"[MopupWnd]__refreshMopupingList\",this._accumCount,s.items),n.setTitle(String(this._accumCount),this.frameData.type);let a=s.items;if(1==s.type&&a.length>0){let t=[];for(let e=0;e<a.length;e++){let i=a[e].templateId,s=new g_t;s.templateId=i,s.count=a[e].count,t.push(s)}n.setItemList(t)}let r=s.count,o=s.finishCount;this.frameData.state==ry.MazeMopuping&&(r=s.eIndex,o=s.cIndex),o>0&&(o==r?this._accumCount=r:i==t.length-1&&2==s.type?(this._accumCount=o,r||(this._accumCount=o+1)):this._accumCount=o+1),(o>0&&o==r&&2!=s.type||1==this.model.mopupEnd)&&(e=!0)}if(this.list.numChildren>0)for(let t=this.list.numChildren-1;t>=0;t--){this.list.getChildAt(t).itemType!=ly.Mopuped&&this.list.removeChildToPoolAt(t)}}",
+      "__refreshMopupingList(){if(!this.isShowing||!this.isMopuping||this.destroyed||!this.list||this.list.isDisposed)return;let t=this.model.resultInfoList;/* VAVEYLA_MOPUP_ROWS_V1 */if(this.frameData.type===oy.CampaignMopup){for(let i=this.list.numChildren-1;i>=0;i--)if(this.list.getChildAt(i).itemType!==ly.Mopuped)this.list.removeChildToPoolAt(i);this._vaveylaCompletedRows=this._vaveylaCompletedRows||new Set;t=(t||[]).filter(row=>{if(row.type!==1)return true;const key=[row.campaignId,row.finishCount,row.count].join(\":\");if(this._vaveylaCompletedRows.has(key))return false;this._vaveylaCompletedRows.add(key);return true});this._remainTimeCnt=Math.max(0,Number(this.model.mopupRemainTime)||0);this.txtLeftTime.text=ho.getConsortiaCountDate(this._remainTimeCnt);if(!t.length)return}if(!t||t.length<=0)return void this.addTipItem();let e=!1;for(let i=0;i<t.length;i++){const s=t[i];let n=this.list.addItemFromPool();n.info=s,n.itemType=2==s.type?ly.Mopuping:ly.Mopuped,y_t.xjy(\"[MopupWnd]__refreshMopupingList\",this._accumCount,s.items),n.setTitle(String(this._accumCount),this.frameData.type);let a=s.items;if(1==s.type&&a.length>0){let t=[];for(let e=0;e<a.length;e++){let i=a[e].templateId,s=new g_t;s.templateId=i,s.count=a[e].count,t.push(s)}n.setItemList(t)}let r=s.count,o=s.finishCount;this.frameData.state==ry.MazeMopuping&&(r=s.eIndex,o=s.cIndex),o>0&&(o==r?this._accumCount=r:i==t.length-1&&2==s.type?(this._accumCount=o,r||(this._accumCount=o+1)):this._accumCount=o+1),(o>0&&o==r&&2!=s.type||1==this.model.mopupEnd)&&(e=!0)}if((this.frameData.type!==oy.CampaignMopup||e)&&this.list.numChildren>0)for(let t=this.list.numChildren-1;t>=0;t--){this.list.getChildAt(t).itemType!=ly.Mopuped&&this.list.removeChildToPoolAt(t)}}"
+    ],
+    [
+      "__mopupEnd(){this.model.mopupEnd=!0,this.btnSpeed.enabled=!1,this.btnStop.enabled=!0,this._remainTimeCnt=0,this._tickTimer&&this._tickTimer.stop(),this._totalTickTimer&&this._totalTickTimer.stop(),this.txtLeftTime.text=\"\"}",
+      "__mopupEnd(){this.model.mopupEnd=!0,this.btnSpeed.enabled=!1,this.btnStop.enabled=!0,this._remainTimeCnt=0,this._tickTimer&&this._tickTimer.stop(),this._totalTickTimer&&this._totalTickTimer.stop(),this.txtLeftTime.text=\"\";if(this.frameData.type===oy.CampaignMopup){if(this._vaveylaSweepPoll)Laya.timer.clear(this,this._vaveylaSweepPoll);this._vaveylaPollWaiting=false;this.btnStop.enabled=true;this.btnStop.title=\"Onayla\";this.txtLeftTime.text=\"Baskın tamamlandı.\"}}"
+    ],
+    [
+      "btnStopClick(){this.isMopuping&&this.model.mopupEnd&&this.exit(!0)}",
+      "btnStopClick(){if(this.frameData&&this.frameData.type===oy.CampaignMopup){this.exit(!0);return}this.isMopuping&&this.model.mopupEnd&&this.exit(!0)}"
+    ],
+    [
+      "OnHideWind(){super.OnHideWind(),this.removeEvent()}addEvent(){this.model.addEventListener(gy.MOPUP_LIST_REFRESH",
+      "OnHideWind(){if(this._vaveylaSweepPoll)Laya.timer.clear(this,this._vaveylaSweepPoll);this._vaveylaPollWaiting=false;super.OnHideWind(),this.removeEvent()}addEvent(){this.model.addEventListener(gy.MOPUP_LIST_REFRESH"
+    ],
+    [
+      "dispose(){this.removeEvent(),this._tickTimer&&this._tickTimer.stop(),this._tickTimer=null,this._totalTickTimer&&this._totalTickTimer.stop(),this._totalTickTimer=null;try{this.list.removeChildrenToPool()}catch(t){y_t.error(t)}super.dispose()}",
+      "dispose(){if(this._vaveylaSweepPoll)Laya.timer.clear(this,this._vaveylaSweepPoll);this.removeEvent(),this._tickTimer&&this._tickTimer.stop(),this._tickTimer=null,this._totalTickTimer&&this._totalTickTimer.stop(),this._totalTickTimer=null;try{this.list.removeChildrenToPool()}catch(t){y_t.error(t)}super.dispose()}"
+    ],
+    [
+      "__refreshMopupInfoHandler(t){let e=t.readBody(lz);",
+      "__refreshMopupInfoHandler(t){let e=t.readBody(lz);if(this.view)this.view._vaveylaPollWaiting=false;if(e&&e.status===10)this._vaveylaRestoreCancelled=false;"
+    ],
+    [
+      "Laya.timer.once(1e3,this,()=>{cd.Instance.addPkgToBuffer(t,sa.SPACE_SCENE,this.enterSpaceShow.bind(this))});break;case 11:this.data.mopupEnd=!0",
+      "Laya.timer.once(1e3,this,()=>{if(this._vaveylaRestoreCancelled)return;if(this.view&&this.view.isShowing&&this.view.isMopuping&&this.view._campaignId===this.data.campaignId)return;const target=s6.Instance.currentType===sa.CASTLE_SCENE?sa.CASTLE_SCENE:sa.SPACE_SCENE;cd.Instance.addPkgToBuffer(t,target,this.enterSpaceShow.bind(this))});break;case 11:this.data.mopupEnd=!0"
+    ],
+    [
+      "exit(t){t&&(this.frameData.type==oy.CampaignMopup?this.ctrl.sendMopupInfo(oy.CampaignMopup,hy.Cancel,this._campaignTemp.CampaignId):this.frameData.type==oy.PetCampaignMopup?this.ctrl.sendMopupInfo(oy.PetCampaignMopup,hy.Cancel):this.ctrl.sendMopupInfo(oy.MazeMopup,hy.Cancel),this.OnBtnClose())}",
+      "exit(t){/* VAVEYLA_RAID_CONFIRM_CLOSE_V1 */if(t&&this.frameData&&this.frameData.type===oy.CampaignMopup){if(this._vaveylaClosing)return;this._vaveylaClosing=true;this.ctrl._vaveylaRestoreCancelled=true;if(this._vaveylaSweepPoll)Laya.timer.clear(this,this._vaveylaSweepPoll);this._vaveylaPollWaiting=false;const id=Number(this._campaignTemp&&this._campaignTemp.CampaignId||this._campaignId||this.model.campaignId);try{if(Number.isSafeInteger(id)&&id>0)this.ctrl.sendMopupInfo(oy.CampaignMopup,hy.Cancel,id)}catch(error){y_t.warn(\"[VAVEYLA] Baskın kapatma isteği gönderilemedi.\")}finally{this.model.isMopup=false;this.ctrl.exit()}return}t&&(this.frameData.type==oy.CampaignMopup?this.ctrl.sendMopupInfo(oy.CampaignMopup,hy.Cancel,this._campaignTemp.CampaignId):this.frameData.type==oy.PetCampaignMopup?this.ctrl.sendMopupInfo(oy.PetCampaignMopup,hy.Cancel):this.ctrl.sendMopupInfo(oy.MazeMopup,hy.Cancel),this.OnBtnClose())}"
+    ],
+    [
+      "OnShowWind(){super.OnShowWind(),this.frameData||(this.frameData={type:oy.CampaignMopup,state:ry.CampaignMopupPre}),this.isMopuping||s6.Instance.currentType!=sa.CASTLE_SCENE&&(s6.Instance.currentType,sa.SPACE_SCENE),this.tipItem1.setInfo(nh.TEMP_ID_GOLD),this.tipItem2.setInfo(nh.TEMP_ID_POWER),y_t.xjy(\"[MopupWnd]OnShowWind\",this.frameData,this.model.towerInfo,this.model),this.gPower.visible=this.frameData.type==oy.CampaignMopup,this.gOpenBox.visible=this.frameData.type==oy.CampaignMopup,this.gGoods.visible=this.frameData.type==oy.PetCampaignMopup,this.frameData.type!=oy.CampaignMopup&&this.frameData.type!=oy.PetCampaignMopup&&(this.txtCountDesc.text=B.Instance.GetTranslation(\"MopupWnd.SweepLayer\")),this.frameData.type==oy.PetCampaignMopup&&(this.frameData.state==ry.PetCampaignMopupping?this._levelData=this.getUIPlayLevelListByUiLevelId(this.frameData.UiLevelId):this._levelData=this.frameData.levelData,0!=this._levelData.ConsumeType?this.tipItem3.setInfo(this._levelData.ConsumeType):this.tipItem3.setInfo(nh.TEMP_ID_POWER)),this._handler&&this._handler.recover(),this._handler=Laya.Handler.create(this,this.__onTxtChange,null,!1),this.addEvent(),this.initData(),this.setPage(this.isMopuping)}",
+      "OnShowWind(){super.OnShowWind(),this.frameData||(this.frameData={type:oy.CampaignMopup,state:ry.CampaignMopupPre}),this.isMopuping||s6.Instance.currentType!=sa.CASTLE_SCENE&&(s6.Instance.currentType,sa.SPACE_SCENE),this.tipItem1.setInfo(nh.TEMP_ID_GOLD),this.tipItem2.setInfo(nh.TEMP_ID_POWER),y_t.xjy(\"[MopupWnd]OnShowWind\",this.frameData,this.model.towerInfo,this.model),this.gPower.visible=this.frameData.type==oy.CampaignMopup,this.gOpenBox.visible=this.frameData.type==oy.CampaignMopup,this.gGoods.visible=this.frameData.type==oy.PetCampaignMopup,this.frameData.type!=oy.CampaignMopup&&this.frameData.type!=oy.PetCampaignMopup&&(this.txtCountDesc.text=B.Instance.GetTranslation(\"MopupWnd.SweepLayer\")),this.frameData.type==oy.PetCampaignMopup&&(this.frameData.state==ry.PetCampaignMopupping?this._levelData=this.getUIPlayLevelListByUiLevelId(this.frameData.UiLevelId):this._levelData=this.frameData.levelData,0!=this._levelData.ConsumeType?this.tipItem3.setInfo(this._levelData.ConsumeType):this.tipItem3.setInfo(nh.TEMP_ID_POWER)),this._handler&&this._handler.recover(),this._handler=Laya.Handler.create(this,this.__onTxtChange,null,!1),this.addEvent(),this.initData(),this.setPage(this.isMopuping);/* VAVEYLA_RAID_CONFIRM_V1 */if(this.frameData.type===oy.CampaignMopup){this._vaveylaClosing=false;const close=()=>this.exit(true);if(this.btnStop&&this.btnStop.onClick)this.btnStop.onClick(this,close);if(this.btnClose&&this.btnClose.onClick)this.btnClose.onClick(this,close);if(this.UIButtonObj)this.UIButtonObj.forEach((button,key)=>{const name=String(key||\"\").toLowerCase(),title=String(button.title||\"\").trim().toLowerCase();if((/^(btnstop|btnclose|closebtn|btnconfirm|btnok)$/.test(name)||title===\"onayla\"||title===\"confirm\")&&button.onClick)button.onClick(this,close)})}}"
+    ],
+    [
+      "case 11:this.data.mopupEnd=!0,this.data.isNormalEnd=!0;break;",
+      "case 11:this.data.mopupEnd=!0,this.data.isNormalEnd=!0;if(this.view&&this.view.isShowing)this.view.setPage(true);break;"
+    ],
+    [
+      "constructor(){super(),this.fashionList=new oa,this.army=new Bh,this.castlePawnList=new oa,this.casernPawnList=new oa,this.dragonFashionList=new oa}",
+      "constructor(){super(),this.fashionList=new oa,this.army=new Bh,this.castlePawnList=new oa,this.casernPawnList=new oa,this.dragonFashionList=new oa;/* VAVEYLA_EMPTY_FASHION_V1 */this.fashionInfoMsg=new i0;this.fashionInfoMsg.status=\"1,1,1,1\"}"
+    ],
+    [
+      "onConstruct(){super.onConstruct();let t=\"[color=#ffc68f]{propertyName=力量}: [/color] [color=#ffecc6]{property=6543218}[/color]\";for(let e=0;e<=7;e++){const i=this[\"txt_point_\"+e];i&&e<5&&(i.text=t);const s=this[\"txt_property_\"+e];s&&4!=e&&5!=e&&(s.text=t)}Ok.Instance.isSystemOpen(bk.BAG_BATTLE_GUARD)?this.hasActiveBattle.selectedIndex=1:this.hasActiveBattle.selectedIndex=0}",
+      "onConstruct(){super.onConstruct();/* VAVEYLA_ROLE_TURKISH_V1 */const points=[\"Güç\", \"Çeviklik\", \"Zekâ\", \"Dayanıklılık\", \"Liderlik\", \"Kuvvet\", \"Direnç\"],attrs=[\"Fiziksel Saldırı\", \"Fiziksel Savunma\", \"Büyülü Saldırı\", \"Büyülü Savunma\", \"Kritik\", \"Blok\", \"Can\", \"Birlik Kapasitesi\"];for(let e=0;e<8;e++){const p=this[\"txt_point_\"+e],a=this[\"txt_property_\"+e];if(p&&e<5)p.text=\"[color=#ffc68f]{propertyName=\"+points[e]+\"}: [/color] [color=#ffecc6]{property=0}[/color]\";if(a&&e!==4&&e!==5)a.text=\"[color=#ffc68f]{propertyName=\"+attrs[e]+\"}: [/color] [color=#ffecc6]{property=0}[/color]\"}Ok.Instance.isSystemOpen(bk.BAG_BATTLE_GUARD)?this.hasActiveBattle.selectedIndex=1:this.hasActiveBattle.selectedIndex=0}"
+    ],
+    [
+      "setData(t){this._data=t;let e=B.Instance;this._propertyNameList=[e.GetTranslation(\"armyII.ThaneAttributeView.Tip06\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip07\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip08\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip09\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip31\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip32\"),e.GetTranslation(\"pet.hp\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip12\")],this._pointNameList_0=[e.GetTranslation(\"armyII.ThaneAttributeView.Tip01\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip02\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip03\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip04\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip05\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip23\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip24\")],this.updateView()}",
+      "setData(t){this._data=t;let e=B.Instance;this._propertyNameList=[e.GetTranslation(\"armyII.ThaneAttributeView.Tip06\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip07\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip08\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip09\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip31\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip32\"),e.GetTranslation(\"pet.hp\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip12\")],this._pointNameList_0=[e.GetTranslation(\"armyII.ThaneAttributeView.Tip01\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip02\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip03\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip04\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip05\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip23\"),e.GetTranslation(\"armyII.ThaneAttributeView.Tip24\")],this._pointNameList_0=[\"Güç\", \"Çeviklik\", \"Zekâ\", \"Dayanıklılık\", \"Liderlik\", \"Kuvvet\", \"Direnç\"],this._propertyNameList=[\"Fiziksel Saldırı\", \"Fiziksel Savunma\", \"Büyülü Saldırı\", \"Büyülü Savunma\", \"Kritik\", \"Blok\", \"Can\", \"Birlik Kapasitesi\"],this.updateView()}"
+    ],
+    [
+      "static sendItemIntensify(){vZ.Instance.send(Bn.U_C_ITEM_STRENGTHEN)}",
+      "static sendItemIntensify(){/* VAVEYLA_FORGE_REQ_V1 */const item=dJ.Instance.getHideBagItemByPos(0);if(!item)return;const req=new com.road.yishi.proto.campaign.CampaignReqMsg;req.paraInt1=item.id;req.paraInt2=item.strengthenGrade||0;req.paraString1=\"VAVEYLA_FORGE_REQ_V1:\"+Date.now().toString(36)+\"-\"+Math.random().toString(36).slice(2);vZ.Instance.send(Bn.U_C_ITEM_STRENGTHEN,req)}"
+    ],
+    [
+      "__onIntensifyResult(t){let e=t.readBody(sz);y_t.log(\"[ForgeCtrl]__onIntensifyResult\",e),this.view.refresh(cJ.TabIndex.QH,\"IntensifyResult\",t)}",
+      "__onIntensifyResult(t){/* VAVEYLA_FORGE_RESULT_V1 */const raw=t.readBody(com.road.yishi.proto.item.ItemInfoMsg);if(raw.property1!==\"VAVEYLA_FORGE_V1\")return;if(!this.view||!this.view.isShowing)return;const item=dJ.Instance.getHideBagItemByPos(0);if(raw.id&&(!item||item.id!==raw.id||item.strengthenGrade>raw.strengthenGrade))return;const result={strengResult:raw.exist,pos:raw.pos,bagType:raw.bagType,objectId:raw.objectId,strengthenGrade:raw.strengthenGrade};t.readBody=()=>result;this.view.refresh(cJ.TabIndex.QH,\"IntensifyResult\",t)}"
+    ],
+    [
+      "static sendItemMount(t,e,i){let s=new $q;s.mountPos=t,s.bagType=i,s.bagPos=e,vZ.Instance.send(Bn.U_C_ITEM_INLAY,s)}",
+      "static sendItemMount(t,e,i){const q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraInt1=t;q.paraInt2=e;q.paraInt3=i;vZ.Instance.send(Bn.U_C_ITEM_INLAY,q)}"
+    ],
+    [
+      "PunchConfirm(t,e,i,s){if(t){let t=new Co;t.holePos=i,t.operate=s,vZ.Instance.send(Bn.U_C_ITEM_INLAYJOIN,t)}}",
+      "PunchConfirm(t,e,i,s){if(t){const q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraInt1=i;q.paraBool1=s;vZ.Instance.send(Bn.U_C_ITEM_INLAYJOIN,q)}}"
+    ],
+    [
+      "static sendStudyRune(t,e,i=1){var s=new Rr;s.opType=Tr.RUNE_STUDY,s.userId=n0.Instance.army.userId,s.runeId=t,s.learnRunePos=e,s.learnRuneCount=i,vZ.Instance.send(Bn.U_C_HERO_RUNE_OP,s)}",
+      "static sendStudyRune(t,e,i=1){const q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraInt1=t;q.paraInt2=e;q.paraInt3=i;q.paraString1=\"VAVEYLA_RUNE_LEARN_V1\";vZ.Instance.send(Bn.U_C_HERO_RUNE_OP,q)}"
+    ],
+    [
+      "activateMount(t,e=!0){var i=new sm;i.param1=t,i.payType=0,e||(i.payType=1),this.currentActiveId=t,vZ.Instance.send(Bn.C_MOUNTAVATAR_ACTIVE,i)}",
+      "activateMount(t,e=!0){const q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraInt1=t;q.paraInt2=e?0:1;this.currentActiveId=t;vZ.Instance.send(Bn.C_MOUNTAVATAR_ACTIVE,q)}"
+    ],
+    [
+      "__onMountListUpdate(t){let e=t.readBody(im);",
+      "__onMountListUpdate(t){let e=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg);if(!e.paraString1||!e.paraString1.startsWith(\"VAVEYLA_MOUNTS_V1:\"))return;e=JSON.parse(e.paraString1.slice(18));"
+    ],
+    [
+      "__runeOperateHandler(t){let e=t.readBody($$);",
+      "__runeOperateHandler(t){let e=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg);if(!e.paraString1||!e.paraString1.startsWith(\"VAVEYLA_RUNES_V1:\"))return;e=JSON.parse(e.paraString1.slice(17));"
+    ],
+    [
+      "sendUseItem(t,e=1,i=1,s=\"\",n=0,a=null){let r=new yo;r.pos=t,r.count=e,r.bagType=i,r.battleId=s,r.friendId=n,a&&(r.selectItemInfos=a),vZ.Instance.send(Bn.U_C_BAG_USEITEM,r)}",
+      "sendUseItem(t,e=1,i=1,s=\"\",n=0,a=null){let r=new yo;r.pos=t,r.count=e,r.bagType=i,r.battleId=s,r.friendId=n;if(!s&&i===1){const item=dJ.Instance.getItemByPOB(t,0,i);if(item)r.battleId=\"VAVEYLA_ITEM_USE_V1:\"+item.id+\":\"+item.templateId+\":\"+Date.now().toString(36)+\"-\"+Math.random().toString(36).slice(2)}a&&(r.selectItemInfos=a),vZ.Instance.send(Bn.U_C_BAG_USEITEM,r)}"
+    ],
+    [
+      "move(t,e){let i,s=new Up,n=new Hp;n.playerId=n0.Instance.army.userId;for(const e in t){let s=t[e];i=new Fp,i.x=s.x,i.y=s.y,n.path.push(i)}s.players.push(n),s.isVisualFollow=e,vZ.Instance.send(Bn.C_PLAYER_SPACE_MOVE,s)}",
+      "move(t,e){/* VAVEYLA_SKY_V1 */let s=new com.road.yishi.proto.worldmap.PosMoveMsg;s.armyId=n0.Instance.army.userId;s.mapId=10000;s.moveType=Number(e)||0;s.routes=[];for(let p of t){let r=new com.road.yishi.proto.worldmap.RouteMsg;r.x=p.x;r.y=p.y;s.routes.push(r)}vZ.Instance.send(Bn.C_PLAYER_SPACE_MOVE,s)}"
+    ],
+    [
+      "__spaceSyncPosHandler(t){if(s6.Instance.currentType!=sa.SPACE_SCENE)return;let e=t.readBody(BU);YU.Instance.model&&YU.Instance.model.moveArmyTo(e)}",
+      "__spaceSyncPosHandler(t){if(s6.Instance.currentType!=sa.SPACE_SCENE)return;let v=t.readBody(com.road.yishi.proto.worldmap.PosMoveMsg);if(v.armyId===n0.Instance.army.userId||v.moveType===2)return;let e={players:[{playerId:v.armyId,path:v.routes}],isVisualFollow:v.moveType};YU.Instance.model&&YU.Instance.model.moveArmyTo(e)}"
+    ],
+    [
+      "requestPlayerInfos(t){let e=new Wp;e.userList=t,vZ.Instance.send(Bn.C_GET_SPACE_PLAYER_ARMY_INFO,e)}",
+      "requestPlayerInfos(t){let e=new Gp;e.param1=10000;vZ.Instance.send(Bn.C_GET_SPACE_PLAYER_ARMY_INFO,e)}"
+    ],
+    [
+      "else YU.ClickEnterHome=!0,s6.Instance.currentType==sa.CAMPAIGN_MAP_SCENE?this.returnCampaignRoom():Yp.Instance.enterSpace()",
+      "else YU.ClickEnterHome=!0,Yp.Instance.enterSpace()"
+    ],
+    [
+      "enterInnerHome(){let t=this;",
+      "enterInnerHome(){if(s6.Instance.currentType==sa.SPACE_SCENE){Yp.Instance.leaveSpace();return}let t=this;"
+    ],
+    [
+      "changeToCastleScene(){s6.Instance.setScene(sa.CASTLE_SCENE)}",
+      "changeToCastleScene(){if(s6.Instance.currentType==sa.SPACE_SCENE)Yp.Instance.leaveSpace();else s6.Instance.setScene(sa.CASTLE_SCENE)}"
+    ],
+    [
+      "1e4==this._mapTemplate.MapFileId&&(this.drawWay=G1.drawWay)",
+      "1e4==this._mapTemplate.MapFileId&&(this.drawWay=3)"
+    ],
+    [
+      "updateBgView(){1==this.drawWay?",
+      "updateBgView(){/* VAVEYLA_SKY_DIRECT_TILES_V1 */if(this.drawWay===3){if(!this._bgModel)return;this._bgModel.updateViewportCenterTile();if(this._bgModel._viewportCenterTile){this._bgModel.updateViewportCoverBounds();this._bgModel.updateLoadQueue();this.loadViewportTiles()}this.renderTitle();return}1==this.drawWay?"
+    ],
+    [
+      "loadViewportTiles(){let t=this._bgModel.loadQueue,e=0;",
+      "loadViewportTiles(){if(this.drawWay===3){for(let tile of this._bgModel.loadQueue||[]){if(tile.isLoaded&&tile.getTitleView().texture||tile._vaveylaLoading)continue;tile._vaveylaLoading=true;let url=Ba.getMapBackPaths(tile.mapFileId)+\"tile_\"+tile.key+(f_t.useAstc?\".ktx\":\".jpg\");o6.Instance.loadRes(url,texture=>{tile._vaveylaLoading=false;if(!this._bgModel)return;if(texture)tile.url=url;this.renderTitle()})}return}let t=this._bgModel.loadQueue,e=0;"
+    ],
+    [
+      "renderTitle(){if(!this._bgModel||!this.offlineSprite)return;",
+      "vaveylaRenderSkyTiles(){if(!this._bgModel)return;const v=this._bgModel.viewport,pad=256;for(const column of this._bgModel.tiles)for(const tile of column){const visible=tile.isLoaded&&!!tile.getTitleView().texture&&tile.x+tile.size>v.x-pad&&tile.y+tile.size>v.y-pad&&tile.x<v.x+v.width+pad&&tile.y<v.y+v.height+pad;tile.addToParent(visible)}}renderTitle(){if(this.drawWay===3){this.vaveylaRenderSkyTiles();return}if(!this._bgModel||!this.offlineSprite)return;"
+    ],
+    [
+      "__createSpaceHandler(t){let e=t.readBody(oF);",
+      "__createSpaceHandler(t){globalThis.VAVEYLA_SKY_DIAGNOSTICS=()=>{try{const s=s6.Instance,m=YU.Instance.model,c=s.currentScene,v=YU.Instance.mapView,b=v&&v._bgLayer,num=x=>Number.isFinite(x)?Math.max(-1000000,Math.min(1000000,Math.trunc(x))):null,name=x=>typeof x===\"string\"&&/^[A-Z_]{1,40}$/.test(x)?x:null;return {phase:globalThis.VAVEYLA_SKY_PHASE||\"create\",scene:name(s.currentType),next_scene:name(s.nextScene&&s.nextScene.SceneName),map_id:num(m&&m.mapId),node_count:num(m&&m.mapNodesData&&m.mapNodesData.length),tiles_ready:!!(m&&m.mapTielsData),self_ready:!!(m&&m.selfArmy),view_ready:!!v,scene_visible:!!(c&&c.visible),scene_active:!!(c&&c.active),entered:!!(c&&c.isEnterOver),tile_views:num(b&&b.children?b.children.length:b&&b.numChildren),load_count:num(globalThis.VAVEYLA_SKY_LOAD_COUNT),transition_alpha:s._sceneSwitchAnimation&&Number.isFinite(s._sceneSwitchAnimation.alpha)?s._sceneSwitchAnimation.alpha:null,view_x:num(v&&v.x),view_y:num(v&&v.y)}}catch(e){return {phase:\"read_failed\"}}};globalThis.VAVEYLA_SKY_PHASE=\"create\";let e=t.readBody(oF);"
+    ],
+    [
+      "preLoadingStart(t=null){return y_t.log(\"preload start\"),",
+      "preLoadingStart(t=null){globalThis.VAVEYLA_SKY_PHASE=\"preloading\";globalThis.VAVEYLA_SKY_LOAD_COUNT=0;return y_t.log(\"preload start\"),"
+    ],
+    [
+      "loadProgress(){this._loadCount++,this._behindBool",
+      "loadProgress(){if(this._model&&this._model.mapId===10000)globalThis.VAVEYLA_SKY_LOAD_COUNT=this._loadCount+1;this._loadCount++,this._behindBool"
+    ],
+    [
+      "YU.Instance.mapView=this._view,this._rectScanUtils=new u0",
+      "YU.Instance.mapView=this._view,globalThis.VAVEYLA_SKY_PHASE=\"map_view\",this._rectScanUtils=new u0"
+    ],
+    [
+      "enterOver(){return new Promise(async t=>{if(this.releaseScene(),this._preSceneData)",
+      "enterOver(){globalThis.VAVEYLA_SKY_PHASE=\"enter_over\";return new Promise(async t=>{if(this.releaseScene(),this._preSceneData)"
+    ],
+    [
+      "y_t.log(\"SceneManager.spacescene.enterOver:\"),RV.Instance.nextShow()",
+      "y_t.log(\"SceneManager.spacescene.enterOver:\"),globalThis.VAVEYLA_SKY_PHASE=\"ui_ready\",RV.Instance.nextShow()"
+    ],
+    [
+      "parseConfigToDic(t,e,i){this.configMapDic[t]||(this.configMapDic[t]={});",
+      "parseConfigToDic(t,e,i){if(t===\"t_s_recharge\"&&e&&Array.isArray(e.mDataList))for(const row of e.mDataList)if([1,4,6,7].includes(Number(row.ProductType)))row.MoneyNum=\"0\";if(t===\"t_s_mounttemplate\"&&e&&Array.isArray(e.mDataList)&&!e.mDataList.some(x=>x.TemplateId===990001))e.mDataList.push(new iat({\"Activation\":0,\"Agility\":0,\"AvatarPath\":\"/mount_vaveyla_sphynx\",\"Description_de\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_en\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_es\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_fr\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_id\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_nl\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_pl\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_pt\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_ru\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_th\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_tr\":\"VAVEYLA özel bineği. Mavi-altın zırhlı sfenks kedisi. Ücretsiz ve kalıcıdır.\",\"Description_zhcn\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"Description_zhtw\":\"VAVEYLA exclusive royal sphynx cat. Free permanent mount.\",\"ExpandLevel\":0,\"Intellect\":0,\"IsFly\":0,\"IsStand\":0,\"Limited\":-1,\"MountSonType\":0,\"MountType\":0,\"NeedItemId\":0,\"NeedMountGrade\":0,\"Physique\":0,\"Power\":0,\"Property1\":0,\"Property2\":1,\"SonType\":0,\"Sort\":0,\"SoulScore\":0,\"Speed\":0,\"StarItem\":0,\"StarPower\":0,\"StarSoulScore\":0,\"TemplateId\":990001,\"TemplateName_de\":\"Sphynx Guardian\",\"TemplateName_en\":\"Sphynx Guardian\",\"TemplateName_es\":\"Sphynx Guardian\",\"TemplateName_fr\":\"Sphynx Guardian\",\"TemplateName_id\":\"Sphynx Guardian\",\"TemplateName_nl\":\"Sphynx Guardian\",\"TemplateName_pl\":\"Sphynx Guardian\",\"TemplateName_pt\":\"Sphynx Guardian\",\"TemplateName_ru\":\"Sphynx Guardian\",\"TemplateName_th\":\"Sphynx Guardian\",\"TemplateName_tr\":\"Sfenks Muhafızı\",\"TemplateName_zhcn\":\"Sphynx Guardian\",\"TemplateName_zhtw\":\"Sphynx Guardian\"}));this.configMapDic[t]||(this.configMapDic[t]={});"
+    ],
+    [
+      "activeBtnHandler(t){let e,i,s,n;if(t.stopPropagation(),this._vData&&this.isLock)",
+      "activeBtnHandler(t){if(this._vData&&this._vData.TemplateId===990001&&this.isLock){t.stopPropagation();dm.Instance.activateMount(990001,true);return}let e,i,s,n;if(t.stopPropagation(),this._vData&&this.isLock)"
+    ],
+    [
+      "dismount(){var t=new sm;t.param1=0,vZ.Instance.send(Bn.C_ARMYMOUNT_AVATARCHANGE,t)}",
+      "dismount(){let t=new com.road.yishi.proto.campaign.CampaignReqMsg;t.paraInt1=0;t.paraString1=\"VAVEYLA_MOUNT_STATE_V1\";vZ.Instance.send(Bn.C_ARMYMOUNT_AVATARCHANGE,t)}"
+    ],
+    [
+      "mount(){var t=new sm;t.param1=1,vZ.Instance.send(Bn.C_ARMYMOUNT_AVATARCHANGE,t)}",
+      "mount(){let t=new com.road.yishi.proto.campaign.CampaignReqMsg;t.paraInt1=1;t.paraString1=\"VAVEYLA_MOUNT_STATE_V1\";vZ.Instance.send(Bn.C_ARMYMOUNT_AVATARCHANGE,t)}"
+    ],
+    [
+      "changeMount(t){var e=new sm;e.param1=t,vZ.Instance.send(Bn.C_MOUNT_CHANGE,e)}",
+      "changeMount(t){let e=new com.road.yishi.proto.campaign.CampaignReqMsg;e.paraInt1=t;e.paraString1=\"VAVEYLA_MOUNT_STATE_V1\";vZ.Instance.send(Bn.C_MOUNT_CHANGE,e)}"
+    ],
+    [
+      "__onMountInfoUpdate(t){let e=t.readBody(nm);",
+      "__onMountInfoUpdate(t){let q=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg);if(q&&typeof q.paraString1===\"string\"&&q.paraString1.startsWith(\"VAVEYLA_MOUNT_STATE_V1:\")){let s=JSON.parse(q.paraString1.slice(23)),id=s.mounted?s.selected:0;this._mountInfo.templateId=s.selected;this._mountInfo.growExp=Number(s.grow_exp)||0;this._mountInfo.propertyGradeMax=Number(s.property_grade_max)||1;if(typeof this._mountInfo.getProperty===\"function\")for(const [name,value]of [[\"Strength\",s.power],[\"Intellect\",s.intellect],[\"Stamina\",s.physique],[\"Armor\",s.agility]]){const p=this._mountInfo.getProperty(name);if(p){p.addition=Number(value)||0;p.propGp=0}}const armies=new Set([n0.Instance.army]);if(typeof YU!==\"undefined\"&&YU.Instance.model&&YU.Instance.model.selfArmy)armies.add(YU.Instance.model.selfArmy);if(typeof b6!==\"undefined\"&&b6.Instance.mapModel&&b6.Instance.mapModel.selfMemberData)armies.add(b6.Instance.mapModel.selfMemberData);for(const a of armies)if(a)a.mountTemplateId=id;for(const a of armies)if(a&&typeof a.commit===\"function\")a.commit();this._mountInfo.dispatchChangeEvent();return}let e=t.readBody(nm);"
+    ],
+    [
+      "r.resourceInfo=e,r.layouPara=new LO(n.standsPara)",
+      "r.resourceInfo=e,r.vaveylaSeat=n.vaveylaSeat||null,r.layouPara=new LO(n.standsPara)"
+    ],
+    [
+      "r.avaterType=RO.WALK,r.resourceInfo=e,this._isStandPosMount?",
+      "r.avaterType=RO.WALK,r.resourceInfo=e,r.vaveylaSeat=n.vaveylaSeat||null,this._isStandPosMount?"
+    ],
+    [
+      "getMountOffsetY(t=RO.STAND){",
+      "getVaveylaSeat(t=RO.STAND){if(this._showTranslucenceView||this.isMorph)return null;const rows=t===RO.WALK?this._avatarWalkList:this._avatarStandList;for(const part of rows||[]){if(!part.visible||!part.loadOver||!part.resourceInfo||part.resourceInfo.position!==La.MOUNT)continue;const data=part.vaveylaSeat;if(!data||data.kind!==\"sphynx_guardian_v1\"||!/(?:^|\\/)mount_vaveyla_sphynx\\/2\\/?$/.test(part.resourceInfo.preUrl||\"\"))continue;const direction=t===RO.WALK?this.frameY:this.getFrameY(this.frameY),key=this.frameX+\"_\"+direction;return (t===RO.WALK?data.walk:data.stand)[key]||null}return null}getMountOffsetY(t=RO.STAND){"
+    ],
+    [
+      "e=s.offsetY;break}}return e}updateDepth()",
+      "e=s.offsetY;break}}return e+(this.getVaveylaSeat(t)?.y||0)}updateDepth()"
+    ],
+    [
+      "let t=this.getMountOffsetY(RO.WALK);for(let i=0;i<this._avatarWalkList.length;i++){",
+      "let t=this.getMountOffsetY(RO.WALK),vaveylaSeat=this.getVaveylaSeat(RO.WALK);for(let i=0;i<this._avatarWalkList.length;i++){"
+    ],
+    [
+      "let c=s.offsetX,_=a.isMountPart?0:t;",
+      "let c=s.offsetX+(a.isMountPart?0:(vaveylaSeat?.x||0)),_=a.isMountPart?0:t;"
+    ],
+    [
+      "let t=this.getFrameY(this.frameY),e=this.getMountOffsetY(RO.STAND);for(let i=0;i<this._avatarStandList.length;i++){",
+      "let t=this.getFrameY(this.frameY),e=this.getMountOffsetY(RO.STAND),vaveylaSeat=this.getVaveylaSeat(RO.STAND);for(let i=0;i<this._avatarStandList.length;i++){"
+    ],
+    [
+      "let c=s.offsetX,_=a.isMountPart?0:e;",
+      "let c=s.offsetX+(a.isMountPart?0:(vaveylaSeat?.x||0)),_=a.isMountPart?0:e;"
+    ],
+    [
+      "requestGiftPackage(t,e){let i=new S_;i.op=t,i.id=e,vZ.Instance.send(Bn.C_SHOP_GIFT_PACKAGE_TOTAL_INFO,i)}",
+      "requestGiftPackage(t,e){let i=new com.road.yishi.proto.campaign.CampaignReqMsg;i.paraInt1=t;i.paraInt2=e||0;i.paraString1=\"VAVEYLA_SHOP_GIFT_V1\";vZ.Instance.send(Bn.C_SHOP_GIFT_PACKAGE_TOTAL_INFO,i)}"
+    ],
+    [
+      "__onGiftPackageInfo(t){let e=t.readBody(L_);",
+      "__onGiftPackageInfo(t){let q=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg),e;if(q&&q.paraString1&&q.paraString1.startsWith(\"VAVEYLA_SHOP_GIFT_V1:\")){e=JSON.parse(q.paraString1.slice(21));this.model.giftPackageDataMap.clear();if(!G$.Instance.productData)G$.Instance.productData=new Map;for(const p of e.products||[])G$.Instance.productData.set(p.productId,p.count)}else e=t.readBody(L_);"
+    ],
+    [
+      "sendFashionChange(t){vZ.Instance.send(Bn.C_FASHION_EXCHANGE,t)}",
+      "sendFashionChange(t){let q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraString1=\"VAVEYLA_FASHION_V1:\"+JSON.stringify(t);vZ.Instance.send(Bn.C_FASHION_EXCHANGE,q)}"
+    ],
+    [
+      "__fashionHandler(t){let e=t.readBody(i0);",
+      "__fashionHandler(t){let q=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg),e;if(q&&typeof q.paraString1===\"string\"&&q.paraString1.startsWith(\"VAVEYLA_FASHION_V1:\")){e=Object.assign(new i0,JSON.parse(q.paraString1.slice(19)));const h=this.thane;if(h&&h.id>0){h.beginChanges();const a=e.appearance||{};h.hairFashionAvata=a.hat||\"\";h.bodyFashionAvata=a.fashionCloth||\"\";h.armsFashionAvata=a.fashionArm||\"\";h.wingAvata=a.wing||\"\";const status=e.status.split(\",\");h.isHidenHatAvata=status[0]===\"0\";h.isHidenClothAvata=status[1]===\"0\";h.isHidenArmAvata=status[2]===\"0\";h.isHidenWingAvata=status[3]===\"0\";h.commit()}}else e=t.readBody(i0);"
+    ],
+    [
+      "__receivedBookHandler(t){let e=t.readBody(mm);",
+      "__receivedBookHandler(t){let q=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg),e;if(q&&q.paraString1&&q.paraString1.startsWith(\"VAVEYLA_FASHION_BOOK_V1:\"))e=Object.assign(new mm,JSON.parse(q.paraString1.slice(24)));else e=t.readBody(mm);"
+    ],
+    [
+      "onBtnFashionClick(t=0){",
+      "onBtnFashionClick(t=1){"
+    ],
+    [
+      "let t=Number(this._cellData.Para3),e=\"\",i=t-0;",
+      "let t=Number(this._cellData.Para3),e=\"\",i=t-w_.Instance.getProductCount(this._cellData.ProductId);"
+    ],
+    [
+      "static sendFashionCompose(t=!1,e=0){let i=new $q;i.count=e,vZ.Instance.send(Bn.C_FASHION_COMPOSE,i)}",
+      "static sendFashionCompose(t=!1,e=0){let q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraString1=\"VAVEYLA_CRAFT_V1:\"+JSON.stringify({count:e,token:\"VAVEYLA_CRAFT_V1:\"+Date.now().toString(36)+\"-\"+Math.random().toString(36).slice(2)});vZ.Instance.send(Bn.C_FASHION_COMPOSE,q)}"
+    ],
+    [
+      "saveBook(t){if(0==t)return;let e=new mm;e.templateId=t,vZ.Instance.send(Bn.C_FASHION_SWITCH,e)}",
+      "saveBook(t){if(0==t)return;let q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraString1=\"VAVEYLA_CRAFT_V1:\"+JSON.stringify({templateId:t,token:\"VAVEYLA_CRAFT_V1:\"+Date.now().toString(36)+\"-\"+Math.random().toString(36).slice(2)});vZ.Instance.send(Bn.C_FASHION_SWITCH,q)}"
+    ],
+    [
+      "__onComposeCallback(t){let e=t.readBody(W$);",
+      "__onComposeCallback(t){let q=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg),e=q&&q.paraString1&&q.paraString1.startsWith(\"VAVEYLA_CRAFT_V1:\")?Object.assign(new W$,JSON.parse(q.paraString1.slice(17))):t.readBody(W$);this.model.opState=0;"
+    ],
+    [
+      "checkExecuteAbled(){this._waitCount>100||C6.Instance.isAllSkillExecuted()||",
+      "checkExecuteAbled(){this._waitCount>20||C6.Instance.isAllSkillExecuted()||"
+    ],
+    [
+      "getStartPoint(t,e,i){if(this.getWalkable(t/20,e/20))return new Laya.Point(t,e);let s=this._model.getNeighborII(t/20,e/20);return s.x=20*s.x,s.y=20*s.y,s}",
+      "getStartPoint(t,e,i){if(this._model.mapTempInfo.Id===10000){const x=Math.floor(t/20),y=Math.floor(e/20);if(this.getWalkable(x,y))return new Laya.Point(x*20,y*20);const w=Math.ceil(this._model.mapTempInfo.Width/20),h=Math.ceil(this._model.mapTempInfo.Height/20),dest=i&&new Laya.Point(Math.floor(i.x/20),Math.floor(i.y/20));const data=this._model.mapTielsData;if(data){const candidates=Object.keys(data).filter(k=>/^\\d+_\\d+$/.test(k)).map(k=>k.split(\"_\").map(Number)).filter(([a,b])=>a>=0&&a<w&&b>=0&&b<h&&this.getWalkable(a,b));candidates.sort((a,b)=>Math.hypot(a[0]-x,a[1]-y)-Math.hypot(b[0]-x,b[1]-y));for(const [a,b]of candidates.slice(0,64)){const c=new Laya.Point(a,b);if(!dest||!this.getWalkable(dest.x,dest.y)||this._findPath.find(c,dest)||a===dest.x&&b===dest.y)return new Laya.Point(a*20,b*20);}return new Laya.Point(-20,-20);}for(let r=1;r<=64;r++){const candidates=[];for(let dy=-r;dy<=r;dy++)for(let dx=-r;dx<=r;dx++){if(Math.max(Math.abs(dx),Math.abs(dy))!==r)continue;const a=x+dx,b=y+dy;if(a>=0&&a<w&&b>=0&&b<h&&this.getWalkable(a,b))candidates.push(new Laya.Point(a,b));}candidates.sort((a,b)=>i?Math.hypot(a.x*20-i.x,a.y*20-i.y)-Math.hypot(b.x*20-i.x,b.y*20-i.y):0);for(const c of candidates.slice(0,16))if(!dest||!this.getWalkable(dest.x,dest.y)||this._findPath.find(c,dest)||c.x===dest.x&&c.y===dest.y)return new Laya.Point(c.x*20,c.y*20);}return new Laya.Point(-20,-20);}if(this.getWalkable(t/20,e/20))return new Laya.Point(t,e);let s=this._model.getNeighborII(t/20,e/20);return s?(s.x=20*s.x,s.y=20*s.y,s):new Laya.Point(-20,-20);}"
+    ],
+    [
+      "moveArmyByPos(t,e,i=!1){let s=this._model.selfArmy;",
+      "moveArmyByPos(t,e,i=!1){if(this._model.mapTempInfo.Id===10000){t=Math.max(0,Math.min(this._model.mapTempInfo.Width-20,t));e=Math.max(0,Math.min(this._model.mapTempInfo.Height-20,e));}let s=this._model.selfArmy;"
+    ],
+    [
+      "static sendSwitch(t,e,i){let s=new $q;s.desItemid=e,s.srcItemid=t,s.count=i,vZ.Instance.send(Bn.C_ITEM_TRANSFORM,s)}",
+      "static sendSwitch(t,e,i){let q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraString1=\"VAVEYLA_CRAFT_V1:\"+JSON.stringify({source:t,destination:e,count:i,token:\"VAVEYLA_CRAFT_V1:\"+Date.now().toString(36)+\"-\"+Math.random().toString(36).slice(2)});vZ.Instance.send(Bn.C_ITEM_TRANSFORM,q)}"
+    ],
+    [
+      "static sendCompose(t,e,i=!1,s=!0){let n=new $q;n.composeId=t,n.composeNum=e,n.autoBuy=i,n.payType=0,s||(n.payType=1),vZ.Instance.send(Bn.U_C_ITEM_COMPOSE,n)}",
+      "static sendCompose(t,e,i=!1,s=!0){let q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraString1=\"VAVEYLA_CRAFT_V1:\"+JSON.stringify({recipe:t,count:e,token:\"VAVEYLA_CRAFT_V1:\"+Date.now().toString(36)+\"-\"+Math.random().toString(36).slice(2)});vZ.Instance.send(Bn.U_C_ITEM_COMPOSE,q)}"
+    ],
+    [
+      "static sendUpdateEquip(t,e,i=!0,s=!1){let n=new $q;n.composeId=t,n.composeNum=e,n.payType=1,n.operate=s,i||(n.payType=1),vZ.Instance.send(Bn.U_C_ITEM_COMPOSE,n)}",
+      "static sendUpdateEquip(t,e,i=!0,s=!1){let q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraString1=\"VAVEYLA_CRAFT_V1:\"+JSON.stringify({recipe:t,count:e,token:\"VAVEYLA_CRAFT_V1:\"+Date.now().toString(36)+\"-\"+Math.random().toString(36).slice(2)});vZ.Instance.send(Bn.U_C_ITEM_COMPOSE,q)}"
+    ],
+    [
+      "let t=G$.Instance.currentPlayerModel.playerInfo.composeList;for(let e of t){let t=mJ.Instance.getComposeById(e);this.addComposeToTemp(t)}",
+      "let t=G$.Instance.currentPlayerModel.playerInfo.composeList||[];const valid=r=>{if(!r||!Number.isSafeInteger(r.Id)||r.Id<=0||![1,2,3,5,10].includes(Number(r.Types)))return false;const gold=Number(r.NeedGold||0),level=Number(r.NeedMinLevel||0);if(!Number.isSafeInteger(gold)||gold<0||gold>2147483647||!Number.isSafeInteger(level)||level<0||level>ar.MAX_JOB_CHANGE_GRADE)return false;const output=I_t.Instance.getTemplateByID(u_t.t_s_itemtemplate,r.NewMaterial);if(!output||!Array.isArray(output.Job)||!output.Job.length)return false;let count=0;for(let i=1;i<=4;i++){const id=Number(r[\"Material\"+i]||0);if(!Number.isSafeInteger(id)||id<0)return false;if(!id)continue;const n=Number(r[\"Count\"+i]);if(!Number.isSafeInteger(n)||n<=0||!I_t.Instance.getTemplateByID(u_t.t_s_itemtemplate,id))return false;count++;}return count>0;};if(this.isShow){const dic=I_t.Instance.getDicSync(u_t.t_s_compose);if(dic)t=Array.from(new Set([...t,...Object.values(dic).filter(valid).map(r=>r.Id)]));}for(let e of t){let t=mJ.Instance.getComposeById(e);if(valid(t))this.addComposeToTemp(t);}"
+    ],
+    [
+      "show(){super.show(),this.initComposeInfo(),this.isShow=!0,this.lastTabIndex=-1}",
+      "show(){super.show(),this.isShow=!0,this.initComposeInfo(),this.lastTabIndex=-1}"
+    ],
+    [
+      "static sendUpTalentGrade(t){const e=new Br;e.upGrade=t,vZ.Instance.send(Bn.C_HERO_TALENT_GRADE_UP,e)}",
+      "static sendUpTalentGrade(t){let q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraString1=\"VAVEYLA_PROGRESS_V1:\"+JSON.stringify({count:t,token:\"VAVEYLA_CRAFT_V1:\"+Date.now().toString(36)+\"-\"+Math.random().toString(36).slice(2)});vZ.Instance.send(Bn.C_HERO_TALENT_GRADE_UP,q)}"
+    ],
+    [
+      "identityBook(t){let e=new mm;e.templateId=t,vZ.Instance.send(Bn.C_FASHION_APPLRAISAL,e)}",
+      "identityBook(t){let q=new com.road.yishi.proto.campaign.CampaignReqMsg;q.paraString1=\"VAVEYLA_PROGRESS_V1:\"+JSON.stringify({templateId:t,token:\"VAVEYLA_CRAFT_V1:\"+Date.now().toString(36)+\"-\"+Math.random().toString(36).slice(2)});vZ.Instance.send(Bn.C_FASHION_APPLRAISAL,q)}"
+    ],
+    [
+      "__changeTalentInfoHandler(t){let e=t.readBody(J$);",
+      "__changeTalentInfoHandler(t){let q=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg),e=q&&q.paraString1&&q.paraString1.startsWith(\"VAVEYLA_TALENT_V1:\")?Object.assign(new J$,JSON.parse(q.paraString1.slice(\"VAVEYLA_TALENT_V1:\".length))):t.readBody(J$);"
+    ],
+    [
+      "__talentGradeUpHandler(t){t.readBody(Z$).upresult&&",
+      "__talentGradeUpHandler(t){let q=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg),e=q&&q.paraString1&&q.paraString1.startsWith(\"VAVEYLA_TALENT_GRADE_V1:\")?Object.assign(new Z$,JSON.parse(q.paraString1.slice(\"VAVEYLA_TALENT_GRADE_V1:\".length))):t.readBody(Z$);e.upresult&&"
+    ],
+    [
+      "t.talentData.resetUserTalentSkill(),e.hasOwnProperty(\"talentSkill\")?t.talentData.talentSkill=e.talentSkill:t.talentData.talentSkill=\"\",",
+      "e.hasOwnProperty(\"talentSkill\")?t.talentData.talentSkill=e.talentSkill:t.talentData.talentSkill=\"\",t.talentData.resetUserTalentSkill(),"
+    ],
+    [
+      "registerNetProto(Bn.U_C_CAMPAIGN_ENTER,[Mn.U_C_CAMPAIGN_CREATE])",
+      "registerNetProto(Bn.U_C_CAMPAIGN_ENTER,[Mn.U_C_CAMPAIGN_CREATE,Mn.U_C_CHANNEL_ALERT])"
+    ],
+    [
+      "__funnyTemHandler(t){let e=t.readBody(gp);",
+      "__funnyTemHandler(t){let wire=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg).paraString1,e;if(wire&&wire.startsWith(\"VAVEYLA_HOT_V1:\")){this._vaveylaHotEvents=true;e=Object.assign(new gp,JSON.parse(wire.slice(15)));}else e=t.readBody(gp);"
+    ],
+    [
+      "__funnyUserHandler(t){let e=t.readBody(mp),i=!1,",
+      "__funnyUserHandler(t){let wire=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg).paraString1,e=wire&&wire.startsWith(\"VAVEYLA_HOT_V1:\")?Object.assign(new mp,JSON.parse(wire.slice(15))):t.readBody(mp),i=!1,"
+    ],
+    [
+      "sendGetBag(t,e=\"\",i=1){var s=new Ip;s.activeId=this.selectedId,s.type=t,s.count=i,s.packageId=e,vZ.Instance.send(Bn.C_SUMACTIVE_GATE,s)}",
+      "sendGetBag(t,e=\"\",i=1){if(this._vaveylaHotEvents&&(!this.selectedId||this.selectedId===\"vaveyla-daily-wish\")){let s=new com.road.yishi.proto.campaign.CampaignReqMsg;s.paraString1=\"VAVEYLA_HOT_V1:\"+JSON.stringify({activeId:this.selectedId||\"\",type:t,count:i,packageId:e});vZ.Instance.send(Bn.C_SUMACTIVE_GATE,s);return;}var s=new Ip;s.activeId=this.selectedId,s.type=t,s.count=i,s.packageId=e,vZ.Instance.send(Bn.C_SUMACTIVE_GATE,s)}"
+    ],
+    [
+      "case bk.FUNNY:let t=Tp.Instance.haveFunnyData();s=f_t.isShowPayEntry&&t&&!I.IOS_VERSION&&Ok.Instance.isShowSystem(bk.FUNNY),n=1;break;",
+      "case bk.FUNNY:let t=Tp.Instance.haveFunnyData();s=(f_t.isShowPayEntry||Tp.Instance._vaveylaHotEvents)&&t&&!I.IOS_VERSION&&Ok.Instance.isShowSystem(bk.FUNNY),n=1;break;"
+    ],
+    [
+      "if(ho.parse(a[i].stopTime,\"YYYY-MM-DD hh:mm:ss\").getTime()<this.playerModel.nowDate)continue;",
+      "if((a[i].vaveylaEndMs??ho.parse(a[i].stopTime,\"YYYY-MM-DD hh:mm:ss\").getTime())<this.playerModel.nowDate)continue;"
+    ],
+    [
+      "r.startTime=ho.parse(n.beginDate,\"YYYY-MM-DD hh:mm:ss\").getTime()",
+      "r.startTime=(n.vaveylaStartMs??ho.parse(n.beginDate,\"YYYY-MM-DD hh:mm:ss\").getTime())"
+    ],
+    [
+      "r.endTime=ho.parse(n.endDate,\"YYYY-MM-DD hh:mm:ss\").getTime()",
+      "r.endTime=(n.vaveylaEndMs??ho.parse(n.endDate,\"YYYY-MM-DD hh:mm:ss\").getTime())"
+    ],
+    [
+      "r.showStart=ho.parse(n.startTime,\"YYYY-MM-DD hh:mm:ss\").getTime()",
+      "r.showStart=(n.vaveylaStartMs??ho.parse(n.startTime,\"YYYY-MM-DD hh:mm:ss\").getTime())"
+    ],
+    [
+      "r.showEnd=ho.parse(n.stopTime,\"YYYY-MM-DD hh:mm:ss\").getTime()",
+      "r.showEnd=(n.vaveylaEndMs??ho.parse(n.stopTime,\"YYYY-MM-DD hh:mm:ss\").getTime())"
+    ],
+    [
+      "__onComposeCallback(t){t.readBody(QEt).composeResult&&this.updateItemList()}",
+      "__onComposeCallback(t){let q=t.readBody(com.road.yishi.proto.campaign.CampaignReqMsg),e=q&&typeof q.paraString1===\"string\"&&q.paraString1.startsWith(\"VAVEYLA_CRAFT_V1:\")?Object.assign(new QEt,JSON.parse(q.paraString1.slice(17))):t.readBody(QEt);this.model.opState=0;if(e.composeResult&&this._itemDic&&this._deleteDic)this.updateItemList()}"
+    ],
+    [
+      "if(!e.composeResult)return void(this.btn_compose.enabled=!0);let i=dJ.Instance.getItemByPOB(e.pos,e.objectId,e.bagType);this.updateView(i),this.displayObject.event(Oi.COMPOSE_SUCCEED,i),Im.Instance.getFashionBook()",
+      "if(this.t0&&typeof this.t0.stop===\"function\")this.t0.stop(false,false);Laya.timer.clear(this,this.__enterFrameHandler);if(this._isDie)return;this.model.opState=0;this.btn_compose.enabled=!!(this.item0&&this.item0.info);if(!e.composeResult)return;let i=dJ.Instance.getItemByPOB(e.pos,e.objectId,e.bagType);this.updateView(i),this.displayObject.event(Oi.COMPOSE_SUCCEED,i),Im.Instance.getFashionBook()"
+    ],
+    [
+      "Ma()&&(this.thane.grades>=ar.ACTIVITY_TIME?this.createBtnData(vk.ACTIVE_TIME,pn.getItemURL(ynt.Home,\"Btn_Eve_Calendar\"),9999,B.Instance.GetTranslation(\"TopToolBar.activeTime\")):this.removeBtnData(vk.ACTIVE_TIME))",
+      "(this.thane.grades>=ar.ACTIVITY_TIME?this.createBtnData(vk.ACTIVE_TIME,pn.getItemURL(ynt.Home,\"Btn_Eve_Calendar\"),9999,B.Instance.GetTranslation(\"TopToolBar.activeTime\")):this.removeBtnData(vk.ACTIVE_TIME))"
+    ],
+    [
+      "initData(){this.listData=[{title:B.Instance.GetTranslation(\"funpreview.WorldBoss\"),openCondition:\"\",openServerTimes:\"\",openLocalTimes:\"\",curServerTime:\"\",curLocalTime:\"\",grade:ar.WORLD_BOSS},{grade:ar.CHALLENGE,title:B.Instance.GetTranslation(\"funpreview.PvpBattle\"),openCondition:\"\",openServerTimes:\"\",openLocalTimes:\"\",curServerTime:\"\",curLocalTime:\"\"},{grade:ar.RVR,title:B.Instance.GetTranslation(\"funpreview.RvrBattle\"),openCondition:\"\",openServerTimes:\"\",openLocalTimes:\"\",curServerTime:\"\",curLocalTime:\"\"},{title:B.Instance.GetTranslation(\"funpreview.ConsortiaBattle\"),grade:ar.CONSORTIA,openCondition:\"\",openServerTimes:\"\",openLocalTimes:\"\",curServerTime:\"\",curLocalTime:\"\"},{grade:ar.PET,title:B.Instance.GetTranslation(\"funpreview.PetBoss\"),openCondition:\"\",openServerTimes:\"\",openLocalTimes:\"\",curServerTime:\"\",curLocalTime:\"\"},{grade:ar.STAR,title:B.Instance.GetTranslation(\"funpreview.Mine\"),openCondition:\"\",openServerTimes:\"\",openLocalTimes:\"\",curServerTime:\"\",curLocalTime:\"\"}],this.sResetTime.text=this.resetTime,this.lResetTime.text=this.formatLocalTime(this.resetTime),this.setWorldBossState(this.listData[0]),this.setPvpBattle(this.listData[1]),this.setRvrBattle(this.listData[2]),this.setGuildWarState(this.listData[3]),this.setPetBossState(this.listData[4]),this.setMineState(this.listData[5]),this.ayList.numItems=this.listData.length}",
+      "initData(){const rows=[{\"Id\":1,\"Title_tr\":\"Dünya Boss\",\"Title_en\":\"World Boss\",\"Description_tr\":\"Katılım Zamanı: 11:30-12:30 / 21:00-22:00\",\"Description_en\":\"Appearance time: 11:30-12:30 / 21:00-22:00\"},{\"Id\":2,\"Title_tr\":\"Dinlenme Tapınağı\",\"Title_en\":\"Altar of Ennoblement\",\"Description_tr\":\"Müsaitlik: 12:00-14:00 / 17:00-19:00 / 21:00-23:00\",\"Description_en\":\"Availability: 12:00-14:00 / 17:00-19:00 / 21:00-23:00\"},{\"Id\":3,\"Title_tr\":\"Ametist Madeni\",\"Title_en\":\"Amethyst Mine\",\"Description_tr\":\"Müsaitlik: 20:30-21:00\",\"Description_en\":\"Availability: 20:30-21:00\"},{\"Id\":4,\"Title_tr\":\"Savaş Alanı\",\"Title_en\":\"Battleground\",\"Description_tr\":\"Açılış Saati: 13:00-23:00\",\"Description_en\":\"Opens at the hours: 13:00-23:00\"},{\"Id\":5,\"Title_tr\":\"Grup Arena\",\"Title_en\":\"Arena\",\"Description_tr\":\"Müsaitlik: 12:00-13:00 / 20:00-21:00\",\"Description_en\":\"Availability: 12:00-13:00 / 20:00-21:00\"},{\"Id\":6,\"Title_tr\":\"Peri Adası Koruma\",\"Title_en\":\"Defend the Sylph Atoll\",\"Description_tr\":\"01:00'de başlar ve her üç saatte bir açılır\",\"Description_en\":\"Starting at 01:00, opens every three hours\"},{\"Id\":7,\"Title_tr\":\"Lonca Sırrı\",\"Title_en\":\"Guild Chamber\",\"Description_tr\":\"Her gün Lonca Lideri tarafından  açılır\",\"Description_en\":\"Opened daily by the Guild leader\"},{\"Id\":8,\"Title_tr\":\"Cesaret Savaşı\",\"Title_en\":\"Battle of the Braves\",\"Description_tr\":\"Her Pazar Lonca Lideri tarafından  açılır\",\"Description_en\":\"Opened by the Guild leader every Sunday\"},{\"Id\":9,\"Title_tr\":\"Lonca Savaşı\",\"Title_en\":\"Guild Battle\",\"Description_tr\":\"Her Salı, Perşembe, Cumartesi ve Pazar açılır\",\"Description_en\":\"Opens every Tuesday, Thursday, Saturday, and Sunday\"},{\"Id\":10,\"Title_tr\":\"Define Madeni\",\"Title_en\":\"Treasure Mine\",\"Description_tr\":\"Müsaitlik: 09:00-10:59 / 21:00-22:59\",\"Description_en\":\"Availability: 09:00-10:59 / 21:00-22:59\"}];this.listData=rows.map(r=>({title:r.Title_tr||r.Title_en,openCondition:\"\",openServerTimes:r.Description_tr||r.Description_en,openLocalTimes:\"\",curServerTime:\"\",curLocalTime:\"\",grade:0}));this.sResetTime.text=\"00:00 UTC\";this.lResetTime.text=this.formatLocalTime(\"00:00\");this.ayList.numItems=this.listData.length}"
+    ]
+  ],
+  "compatible_sha256": [
+    "626ae588f67ce321855040a9e034191ccb802a20bbe295fceae02ab3dcfe95ac"
+  ]
+}
